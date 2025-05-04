@@ -105,100 +105,88 @@
         }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name="description" content="Découvre le SYSTÈME DSA, la méthode qui cartonne en 2025 pour créer ton business digital rentable en 1 semaine. Apprends à générer des revenus passifs en vendant des produits digitaux grâce à un système éprouvé utilisé par des centaines d’entrepreneurs. Résultats rapides et accompagnement inclus.">
+    <meta name="description" content="Découvre le SYSTÈME DSA, la méthode qui cartonne en 2025 pour créer ton business digital rentable en 1 semaine. Apprends à générer des revenus passifs en vendant des produits digitaux grâce à un système éprouvé utilisé par des centaines d'entrepreneurs. Résultats rapides et accompagnement inclus.">
 </head>
 <body class="bg-gray-50 text-gray-800">
+    <!-- Pop-up masqué par défaut -->
+    <div id="dsa-popup-overlay" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;">
+  <div style="
+    background:white;
+    border-radius:18px;
+    max-width:700px;
+    width:95vw;
+    max-height:95vh;
+    padding:0;
+    box-shadow:0 8px 40px rgba(0,0,0,0.2);
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    ">
+    <button id="close-dsa-popup" aria-label="Fermer" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:2rem; color:#888; cursor:pointer; z-index:2;">×</button>
+    <iframe src="https://api.leadconnectorhq.com/widget/form/wwvaDazTCTqBhKPR5iCZ" style="width:100%; height:80vh; min-height:400px; max-height:85vh; border:none; border-radius:12px; display:block;" id="popup-wwvaDazTCTqBhKPR5iCZ" data-layout="{'id':'POPUP'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Formulaire d'achat DSA" data-height="auto" data-layout-iframe-id="popup-wwvaDazTCTqBhKPR5iCZ" data-form-id="wwvaDazTCTqBhKPR5iCZ" title="Formulaire d'achat DSA"></iframe>
+  </div>
+</div>
+
 
     <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden animated-gradient-bg px-4 py-20">
         <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-all duration-300" id="site-header">
-    <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-20">
-            <!-- Logo -->
-            <div class="flex-shrink-0">
-                <a href="#" class="flex items-center">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <a href="#" class="flex items-center"></a>
+                    </div>
                     
-                </a>
-            </div>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-10">
-                <a href="#" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
-                    Présentation
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#benefices" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group" data-index-id="68127461d8bcb3ca43b61f7c" id="index-link">
-Tes bénéfices
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
-Ton programme
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
-    Tes bonus<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex space-x-10">
+                        <a href="#" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
+                            Présentation
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#benefices" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group" data-index-id="68127461d8bcb3ca43b61f7c" id="index-link">
+                            Tes bénéfices
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
+                            Ton programme
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
+                            Tes bonus<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                    </nav>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="#" class="px-14 py-3 bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200 shadow-md hover:shadow-lg">JE ME LANCE MAINTENANT </a>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu" id="mobile-menu-button">
+                            <i class="fa fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
                 
-            </nav>
-            
-            <!-- CTA Buttons -->
-            <div class="hidden md:flex items-center space-x-4">
-                
-                <a href="#" class="px-14 py-3 bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200 shadow-md hover:shadow-lg">JE ME LANCE MAINTENANT </a>
-            </div>
-            
-            <!-- Mobile menu button -->
-            <div class="md:hidden flex items-center">
-                <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu" id="mobile-menu-button">
-                    <i class="fa fa-bars text-xl"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Navigation -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-4 space-y-1 bg-white rounded-lg shadow-lg mt-2">
-                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Home</a>
-                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">About</a>
-                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Services</a>
-                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Portfolio</a>
-                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Contact</a>
-                <div class="pt-4 flex flex-col space-y-2">
-                    <a href="#" class="px-3 py-2 text-center text-blue-600 font-medium hover:text-blue-800 transition-colors duration-200 border border-blue-600 rounded-md">Log In</a>
-                    <a href="#" class="px-3 py-2 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-md hover:from-blue-700 hover:to-purple-700 transition-colors duration-200">Sign Up</a>
+                <!-- Mobile Navigation -->
+                <div class="md:hidden hidden" id="mobile-menu">
+                    <div class="px-2 pt-2 pb-4 space-y-1 bg-white rounded-lg shadow-lg mt-2">
+                        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Home</a>
+                        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">About</a>
+                        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Services</a>
+                        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Portfolio</a>
+                        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Contact</a>
+                        <div class="pt-4 flex flex-col space-y-2">
+                            <a href="#" class="px-3 py-2 text-center text-blue-600 font-medium hover:text-blue-800 transition-colors duration-200 border border-blue-600 rounded-md">Log In</a>
+                            <a href="#" class="px-3 py-2 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-md hover:from-blue-700 hover:to-purple-700 transition-colors duration-200">Sign Up</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Shrink header on scroll
-        const header = document.getElementById('site-header');
-        let lastScrollTop = 0;
-        
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 50) {
-                header.classList.add('h-16');
-                header.classList.remove('h-20');
-            } else {
-                header.classList.add('h-20');
-                header.classList.remove('h-16');
-            }
-            
-            lastScrollTop = scrollTop;
-        });
-    </script>
-</header><div class="absolute inset-0 bg-black opacity-30"></div>
+        </header>
+        <div class="absolute inset-0 bg-black opacity-30"></div>
         <div class="relative z-10 max-w-4xl mx-auto">
             <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight fade-in" style="animation-delay: 0.2s;">
                 <span class="block mb-2">Fatiguée de Lutter Financièrement ?</span>
@@ -217,77 +205,72 @@ Ton programme
 
     <!-- Video Section -->
     <div class="container mx-auto px-4 md:px-8 py-16 md:py-20 lg:py-24">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-                <div class="w-full lg:w-1/2 slide-in-left" style="animation-delay: 0.3s;">
-                    <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
-                        <i class="fas fa-bolt mr-1"></i> NOUVEAU EN 2025
-                    </span>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                        <span class="gradient-text">Ton Système Clé en Main</span> pour Générer des Revenus en une semaine !
-                    </h1>
-                    <p class="text-xl text-gray-600 mb-8">
-                        Découvre comment des centaines de femmes ordinaires génèrent entre 2000€ et 10 000€ par mois grâce à cette méthode simple, sans être influenceuse, sans montrer leur visage et sans investissement financier.
-                    </p>
-                    
-                    
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                        <a href="#inscription" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center pulse cta-button">
-                            <i class="fas fa-rocket mr-2"></i> Je Démarre Mon Business Maintenant
-                        </a>
-                        <a href="#temoignages" class="bg-white border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center">
-                            <i class="fas fa-play-circle mr-2"></i> Voir les Témoignages
-                        </a>
-                    </div>
-                    
-                    <div class="flex items-center gap-6">
-                        <div class="flex -space-x-2">
-                            <img src="https://images.unsplash.com/photo-1517677129300-07b130802f46?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMDN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMDh8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-10 h-10 rounded-full border-2 border-white">
-                            <img src="https://images.unsplash.com/photo-1534278221230-84061d5f99da?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMTN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMzl8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-10 h-10 rounded-full border-2 border-white">
-                            <img src="https://images.unsplash.com/photo-1522938974444-f12497b69347?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMzJ8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyODN8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-10 h-10 rounded-full border-2 border-white">
-                            <img src="https://images.unsplash.com/photo-1533810019453-7351dbd31aee?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxODl8fHdvbWFufGVufDB8MHx8fDE3NDYxMTczMTd8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-10 h-10 rounded-full border-2 border-white">
-                            <div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center text-xs font-bold border-2 border-white">+3190</div>
-                        </div>
-                        <p class="text-gray-600">
-                            <span class="font-bold text-pink-600">+3200 personnes</span> gênèrent des revenus confortablement pourquoi pas toi ? 
-                        </p>
-                    </div>
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="w-full lg:w-1/2 slide-in-left" style="animation-delay: 0.3s;">
+                <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
+                    <i class="fas fa-bolt mr-1"></i> NOUVEAU EN 2025
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    <span class="gradient-text">Ton Système Clé en Main</span> pour Générer des Revenus en une semaine !
+                </h1>
+                <p class="text-xl text-gray-600 mb-8">
+                    Découvre comment des centaines de femmes ordinaires génèrent entre 2000€ et 10 000€ par mois grâce à cette méthode simple, sans être influenceuse, sans montrer leur visage et sans investissement financier.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <a href="#inscription" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center pulse cta-button">
+                        <i class="fas fa-rocket mr-2"></i> Je Démarre Mon Business Maintenant
+                    </a>
+                    <a href="#temoignages" class="bg-white border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center">
+                        <i class="fas fa-play-circle mr-2"></i> Voir les Témoignages
+                    </a>
                 </div>
                 
-                <div class="w-full lg:w-1/2 slide-in-right" style="animation-delay: 0.6s;">
-                    <div class="relative">
-                        <div class="absolute -top-6 -left-6 w-full h-full bg-purple-200 rounded-2xl transform rotate-3"></div>
-                        <div class="absolute -bottom-6 -right-6 w-full h-full bg-pink-200 rounded-2xl transform -rotate-3"></div>
-                        <div class="relative bg-white shadow-xl rounded-2xl p-4 hero-animation">
-                            <div class="aspect-w-16 aspect-h-9 mb-4">
-                                <div class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded-xl overflow-hidden">
-                                    <video src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/videos/ba526085f772b5ef.mp4" controls="" data-initial="true"></video>
-                                    <img src="https://fakeimg.pl/800x450/FF5E94/FFFFFF" alt="Vidéo de présentation" class="w-full h-full object-cover">
+                <div class="flex items-center gap-6">
+                    <div class="flex -space-x-2">
+                        <img src="https://images.unsplash.com/photo-1517677129300-07b130802f46?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMDN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMDh8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-10 h-10 rounded-full border-2 border-white">
+                        <img src="https://images.unsplash.com/photo-1534278221230-84061d5f99da?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMTN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMzl8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-10 h-10 rounded-full border-2 border-white">
+                        <img src="https://images.unsplash.com/photo-1522938974444-f12497b69347?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMzJ8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyODN8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-10 h-10 rounded-full border-2 border-white">
+                        <img src="https://images.unsplash.com/photo-1533810019453-7351dbd31aee?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxODl8fHdvbWFufGVufDB8MHx8fDE3NDYxMTczMTd8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-10 h-10 rounded-full border-2 border-white">
+                        <div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center text-xs font-bold border-2 border-white">+3190</div>
+                    </div>
+                    <p class="text-gray-600">
+                        <span class="font-bold text-pink-600">+3200 personnes</span> gênèrent des revenus confortablement pourquoi pas toi ? 
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-1/2 slide-in-right" style="animation-delay: 0.6s;">
+                <div class="relative">
+                    <div class="absolute -top-6 -left-6 w-full h-full bg-purple-200 rounded-2xl transform rotate-3"></div>
+                    <div class="absolute -bottom-6 -right-6 w-full h-full bg-pink-200 rounded-2xl transform -rotate-3"></div>
+                    <div class="relative bg-white shadow-xl rounded-2xl p-4 hero-animation">
+                        <div class="aspect-w-16 aspect-h-9 mb-4">
+                            <div class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded-xl overflow-hidden">
+                                <video src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/videos/ba526085f772b5ef.mp4" controls="" data-initial="true"></video>
+                                <img src="https://fakeimg.pl/800x450/FF5E94/FFFFFF" alt="Vidéo de présentation" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/65680dc65b508088.jpeg" alt="Fondatrice" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg">Najet</h3>
+                                    <p class="text-gray-600 text-sm">Fondatrice Mymy Business</p>
                                 </div>
                             </div>
-                            
-                            <div class="bg-gray-50 rounded-xl p-6">
-                                <div class="flex items-center mb-4">
-                                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                        <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/65680dc65b508088.jpeg" alt="Fondatrice" class="w-full h-full object-cover">
-                                    </div>
-                                    <div>
-                                        <h3 class="font-bold text-lg">Najet</h3>
-                                        <p class="text-gray-600 text-sm">Fondatrice de Business Digi</p>
-                                    </div>
-                                </div>
-                                <p class="text-gray-700 mb-4">
-                                    "J'ai rejoins cette aventure de folie aprés avoir testé des dizaines de méthodes. J'avais un besoin urgent d'argent pour me sortir d'une situation financière compliquée.  C'est la seule formation qui m'a permis de générer un revenu rapide constant et facilement, sans stress ni compétences techniques 😍 "
-                                </p>
-                                
-                            </div>
-                            
-                            
+                            <p class="text-gray-700 mb-4">
+                                "J'ai rejoins cette aventure de folie aprés avoir testé des dizaines de méthodes. J'avais un besoin urgent d'argent pour me sortir d'une situation financière compliquée.  C'est la seule formation qui m'a permis de générer un revenu rapide, constant et facilement, sans stress ni compétences techniques. Il suffit de faire du copier/coller en adaptant le contenu à la cible choisie 😍 "
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Problem Section -->
     <section id="probleme" class="py-16 md:py-24 bg-gradient-to-b from-purple-50 to-white scroll-animation">
@@ -422,7 +405,7 @@ Ton programme
                         <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
                            <li>Le groupe Telegram DSA</li><li>Le groupe Skool DSA</li><li>Changer son adresse email Skool</li>
                         </ul>
-                         <h3 class="font-bold text-purple-700 mb-2">L’ACCOMPAGNEMENT EXTRA À LA DSA</h3>
+                         <h3 class="font-bold text-purple-700 mb-2">L'ACCOMPAGNEMENT EXTRA À LA DSA</h3>
                         <ul class="list-disc list-inside space-y-1 text-gray-700">
                             <li>Coaching DSA</li><li>Validation DSA</li><li>Rappel Important</li><li>Ton imprimerie de billet légale 💰</li>
                         </ul>
@@ -576,15 +559,15 @@ Ton programme
                  <div class="bg-white/20 p-6 rounded-xl backdrop-blur-md border border-white/30 shadow-lg hover:bg-white/30 transition duration-300">
                     <div class="text-4xl text-yellow-300 mb-3"><i class="fas fa-chart-line"></i></div>
                     <h3 class="text-xl font-bold mb-2 font-heading">PLUSIEURS LIVES / MOIS</h3>
-                    <p class="opacity-90">Pour t’accompagner, répondre à tes questions et scaler plus vite ton activité.</p>
+                    <p class="opacity-90">Pour t'accompagner, répondre à tes questions et scaler plus vite ton activité.</p>
                 </div>
-                 <div class="bg-white/20 p-6 rounded-xl backdrop-blur-md border border-white/30 shadow-lg hover:bg-white/30 transition duration-300">
+                <div class="bg-white/20 p-6 rounded-xl backdrop-blur-md border border-white/30 shadow-lg hover:bg-white/30 transition duration-300">
                     <div class="text-4xl text-yellow-300 mb-3"><i class="fas fa-users"></i></div>
                     <h3 class="text-xl font-bold mb-2 font-heading">2 GROUPES VIP PRIVÉS DSA</h3>
                     <p class="opacity-90">Échange, apprends, applique et chiffre dans une communauté soudée et motivante.</p>
                 </div>
             </div>
-             <p class="mt-12 text-2xl font-bold">💥 TOUT EST PRÊT POUR TOI, PAS D’EXCUSE. PRENDS TA PLACE MAINTENANT ! 🚀</p>
+             <p class="mt-12 text-2xl font-bold">💥 TOUT EST PRÊT POUR TOI, PAS D'EXCUSE. PRENDS TA PLACE MAINTENANT ! 🚀</p>
         </div>
     </section>
 
@@ -644,7 +627,7 @@ Ton programme
                  <p class="mt-6 text-gray-200 text-sm">Formation + Droit de Revente + Tous les Bonus Inclus</p>
             </div>
             <div>
-                <a href="#purchase-link" class="cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-5 px-12 rounded-full text-2xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation">
+                <a href="#" id="open-dsa-popup" class="cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-5 px-12 rounded-full text-2xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation">
                     Oui, Je Veux Accéder à la DSA Maintenant ! <i class="fas fa-lock ml-2"></i>
                 </a>
             </div>
@@ -653,6 +636,15 @@ Ton programme
     </section>
 
     <!-- FAQ Section -->
+    <div id="popup-container" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-11/12 max-w-md transform transition-all duration-300 scale-95 opacity-0" id="popup-content">
+            <div class="relative">
+                <div class="absolute -top-16 -right-16 w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-20"></div>
+                <div class="absolute -bottom-16 -left-16 w-32 h-32 bg-gradient-to-tr from-pink-500 to-yellow-400 rounded-full opacity-20"></div>
+            </div>
+        </div>
+    </div>
+
     <section id="faq" class="py-16 md:py-24 bg-gray-50 scroll-animation">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center section-title">Questions Fréquentes</h2>
@@ -734,21 +726,61 @@ Ton programme
         </div>
     </footer>
 
+    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Shrink header on scroll
+        const header = document.getElementById('site-header');
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 50) {
+                header.classList.add('h-16');
+                header.classList.remove('h-20');
+            } else {
+                header.classList.add('h-20');
+                header.classList.remove('h-16');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Ouvre le pop-up
+        document.getElementById('open-dsa-popup').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('dsa-popup-overlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Empêche le scroll du fond
+        });
+        
+        // Ferme le pop-up
+        document.getElementById('close-dsa-popup').addEventListener('click', function() {
+            document.getElementById('dsa-popup-overlay').style.display = 'none';
+            document.body.style.overflow = '';
+        });
+        
+        // Ferme le pop-up si clic en dehors du contenu
+        document.getElementById('dsa-popup-overlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+
         // Accordion Logic
         const accordionButtons = document.querySelectorAll('.accordion-button');
         accordionButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const content = button.nextElementSibling;
                 const isActive = button.classList.contains('active');
-
-                // Close all other accordions (optional)
-                // accordionButtons.forEach(b => {
-                //     if (b !== button) {
-                //         b.classList.remove('active');
-                //         b.nextElementSibling.style.maxHeight = null;
-                //     }
-                // });
 
                 button.classList.toggle('active');
                 if (!isActive) {
@@ -782,10 +814,6 @@ Ton programme
                 if (elementInView(el, 1.15)) { // Trigger animation slightly before element is fully in view
                     displayScrollElement(el);
                 }
-                // Optional: Hide element when scrolling up
-                // else {
-                //     hideScrollElement(el);
-                // }
             });
         };
 
@@ -807,7 +835,50 @@ Ton programme
             });
         });
 
-    </script>
+        function openPopup() {
+            document.getElementById('popup-overlay').classList.remove('hidden');
+            document.getElementById('popup-overlay').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
 
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('button, a');
+            buttons.forEach(button => {
+                if (button.textContent.includes('Oui, Je Veux Accéder à la DSA Maintenant')) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        document.getElementById('popup-overlay').classList.remove('hidden');
+                    });
+                }
+            });
+            
+            const popupContainer = document.getElementById('popup-container');
+            const popupContent = document.getElementById('popup-content');
+            
+            function showPopup() {
+                popupContainer.classList.remove('hidden');
+                setTimeout(() => {
+                    popupContent.classList.remove('scale-95', 'opacity-0');
+                    popupContent.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            }
+            
+            function hidePopup() {
+                popupContent.classList.remove('scale-100', 'opacity-100');
+                popupContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    popupContainer.classList.add('hidden');
+                }, 300);
+            }
+            
+            if (popupContainer) {
+                popupContainer.addEventListener('click', function(e) {
+                    if (e.target === popupContainer) {
+                        hidePopup();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
