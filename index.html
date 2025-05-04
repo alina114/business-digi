@@ -103,30 +103,37 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         }
+        /* Style pour le popup */
+        #dsa-popup-overlay {
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        }
+        #dsa-popup-overlay > div {
+            margin: auto;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="description" content="Découvre le SYSTÈME DSA, la méthode qui cartonne en 2025 pour créer ton business digital rentable en 1 semaine. Apprends à générer des revenus passifs en vendant des produits digitaux grâce à un système éprouvé utilisé par des centaines d'entrepreneurs. Résultats rapides et accompagnement inclus.">
 </head>
 <body class="bg-gray-50 text-gray-800">
-    <!-- Pop-up masqué par défaut -->
-    <div id="dsa-popup-overlay" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;">
-  <div style="
-    background:white;
-    border-radius:18px;
-    max-width:700px;
-    width:95vw;
-    max-height:95vh;
-    padding:0;
-    box-shadow:0 8px 40px rgba(0,0,0,0.2);
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    ">
-    <button id="close-dsa-popup" aria-label="Fermer" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:2rem; color:#888; cursor:pointer; z-index:2;">×</button>
-    <iframe src="https://api.leadconnectorhq.com/widget/form/wwvaDazTCTqBhKPR5iCZ" style="width:100%; height:80vh; min-height:400px; max-height:85vh; border:none; border-radius:12px; display:block;" id="popup-wwvaDazTCTqBhKPR5iCZ" data-layout="{'id':'POPUP'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Formulaire d'achat DSA" data-height="auto" data-layout-iframe-id="popup-wwvaDazTCTqBhKPR5iCZ" data-form-id="wwvaDazTCTqBhKPR5iCZ" title="Formulaire d'achat DSA"></iframe>
-  </div>
-</div>
-
+    <!-- Pop-up -->
+    <div id="dsa-popup-overlay">
+        <div style="background:white; border-radius:18px; max-width:700px; width:95vw; padding:0; box-shadow:0 8px 40px rgba(0,0,0,0.2); position:relative; display:flex; flex-direction:column;">
+            <button id="close-dsa-popup" aria-label="Fermer" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:2rem; color:#888; cursor:pointer; z-index:2;">×</button>
+            <iframe src="https://api.leadconnectorhq.com/widget/form/wwvaDazTCTqBhKPR5iCZ" style="width:100%; height:80vh; min-height:400px; max-height:85vh; border:none; border-radius:12px; display:block;" id="popup-wwvaDazTCTqBhKPR5iCZ" data-layout="{'id':'POPUP'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Formulaire d'achat DSA" data-height="auto" data-layout-iframe-id="popup-wwvaDazTCTqBhKPR5iCZ" data-form-id="wwvaDazTCTqBhKPR5iCZ" title="Formulaire d'achat DSA"></iframe>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden animated-gradient-bg px-4 py-20">
@@ -626,7 +633,7 @@
                 </a>
                  <p class="mt-6 text-gray-200 text-sm">Formation + Droit de Revente + Tous les Bonus Inclus</p>
             </div>
-            <div>
+            <div class="mt-10">
                 <a href="#" id="open-dsa-popup" class="cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-5 px-12 rounded-full text-2xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation">
                     Oui, Je Veux Accéder à la DSA Maintenant ! <i class="fas fa-lock ml-2"></i>
                 </a>
@@ -847,7 +854,8 @@
                 if (button.textContent.includes('Oui, Je Veux Accéder à la DSA Maintenant')) {
                     button.addEventListener('click', function(e) {
                         e.preventDefault();
-                        document.getElementById('popup-overlay').classList.remove('hidden');
+                        document.getElementById('dsa-popup-overlay').style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
                     });
                 }
             });
