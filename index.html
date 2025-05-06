@@ -111,28 +111,72 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0,0,0,0.7);
-            display: none;
+            background: rgba(0,0,0,0.8); /* Slightly darker overlay */
+            display: none; /* Hidden by default */
             align-items: center;
             justify-content: center;
-            overflow-y: auto;
+            padding: 1rem; /* Add some padding for smaller screens */
+            box-sizing: border-box;
         }
-        #dsa-popup-overlay > div {
-            margin: auto;
-            max-height: 90vh;
-            overflow-y: auto;
+        #dsa-popup-content {
+            background: white;
+            border-radius: 12px; /* Slightly smaller border radius */
+            width: 95%; /* Use percentage for responsiveness */
+            height: 95%; /* Use percentage for responsiveness */
+            max-width: 1200px; /* Optional: Limit max width on very large screens */
+            padding: 0;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Prevent container scroll */
+        }
+        #close-dsa-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 1.5rem;
+            line-height: 35px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s ease;
+        }
+        #close-dsa-popup:hover {
+            background: rgba(0,0,0,0.8);
+        }
+        #dsa-popup-iframe {
+            width: 100%;
+            height: 100%; /* Fill the container */
+            border: none;
+            border-radius: 0 0 12px 12px; /* Match container radius at bottom */
+            display: block;
+            flex-grow: 1; /* Allow iframe to take available space */
+        }
+        /* Ensure body doesn't scroll when popup is open */
+        body.popup-open {
+            overflow: hidden;
         }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="description" content="Découvre le SYSTÈME DSA, la méthode qui cartonne en 2025 pour créer ton business digital rentable en 1 semaine. Apprends à générer des revenus passifs en vendant des produits digitaux grâce à un système éprouvé utilisé par des centaines d'entrepreneurs. Résultats rapides et accompagnement inclus.">
+  <script src="https://unpkg.com/alpinejs" defer></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
+
     <!-- Pop-up -->
     <div id="dsa-popup-overlay">
-        <div style="background:white; border-radius:18px; max-width:700px; width:95vw; padding:0; box-shadow:0 8px 40px rgba(0,0,0,0.2); position:relative; display:flex; flex-direction:column;">
-            <button id="close-dsa-popup" aria-label="Fermer" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:2rem; color:#888; cursor:pointer; z-index:2;">×</button>
-            <iframe src="https://api.leadconnectorhq.com/widget/form/wwvaDazTCTqBhKPR5iCZ" style="width:100%; height:80vh; min-height:400px; max-height:85vh; border:none; border-radius:12px; display:block;" id="popup-wwvaDazTCTqBhKPR5iCZ" data-layout="{'id':'POPUP'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Formulaire d'achat DSA" data-height="auto" data-layout-iframe-id="popup-wwvaDazTCTqBhKPR5iCZ" data-form-id="wwvaDazTCTqBhKPR5iCZ" title="Formulaire d'achat DSA"></iframe>
-        </div>
+      <div id="dsa-popup-content">
+        <button id="close-dsa-popup" aria-label="Fermer">×</button>
+        <iframe id="dsa-popup-iframe" src="https://api.leadconnectorhq.com/widget/form/wwvaDazTCTqBhKPR5iCZ" data-layout="{'id':'POPUP'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Formulaire d'achat DSA" data-height="auto" data-layout-iframe-id="popup-wwvaDazTCTqBhKPR5iCZ" data-form-id="wwvaDazTCTqBhKPR5iCZ" title="Formulaire d'achat DSA">
+        </iframe>
+      </div>
     </div>
 
     <!-- Hero Section -->
@@ -144,31 +188,31 @@
                     <div class="flex-shrink-0">
                         <a href="#" class="flex items-center"></a>
                     </div>
-                    
+
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex space-x-10">
-                        <a href="#" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
+                        <a href="#hero" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
                             Présentation
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                         </a>
-                        <a href="#benefices" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group" data-index-id="68127461d8bcb3ca43b61f7c" id="index-link">
+                        <a href="#benefices" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
                             Tes bénéfices
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                         </a>
-                        <a href="#" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
+                        <a href="#programme" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
                             Ton programme
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                         </a>
-                        <a href="#" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
+                        <a href="#bonus" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
                             Tes bonus<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                         </a>
                     </nav>
-                    
+
                     <!-- CTA Buttons -->
                     <div class="hidden md:flex items-center space-x-4">
-                        <a href="#" class="px-14 py-3 bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200 shadow-md hover:shadow-lg">JE ME LANCE MAINTENANT </a>
+                        <a href="Paiement DSA" class="open-popup-trigger px-14 py-3 bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200 shadow-md hover:shadow-lg" data-page-id="6817d711d8bcb3ca43b66669" id="page-link">JE ME LANCE MAINTENANT </a>
                     </div>
-                    
+
                     <!-- Mobile menu button -->
                     <div class="md:hidden flex items-center">
                         <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu" id="mobile-menu-button">
@@ -176,25 +220,23 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Mobile Navigation -->
                 <div class="md:hidden hidden" id="mobile-menu">
                     <div class="px-2 pt-2 pb-4 space-y-1 bg-white rounded-lg shadow-lg mt-2">
-                        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Home</a>
-                        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">About</a>
-                        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Services</a>
-                        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Portfolio</a>
-                        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Contact</a>
+                        <a href="#hero" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Présentation</a>
+                        <a href="#benefices" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Tes bénéfices</a>
+                        <a href="#programme" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Ton programme</a>
+                        <a href="#bonus" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Tes bonus</a>
                         <div class="pt-4 flex flex-col space-y-2">
-                            <a href="#" class="px-3 py-2 text-center text-blue-600 font-medium hover:text-blue-800 transition-colors duration-200 border border-blue-600 rounded-md">Log In</a>
-                            <a href="#" class="px-3 py-2 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-md hover:from-blue-700 hover:to-purple-700 transition-colors duration-200">Sign Up</a>
+                             <a href="#" class="open-popup-trigger px-3 py-2 text-center bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200">JE ME LANCE MAINTENANT</a>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
         <div class="absolute inset-0 bg-black opacity-30"></div>
-        <div class="relative z-10 max-w-4xl mx-auto">
+        <div class="relative z-10 max-w-4xl mx-auto mt-20 md:mt-0"> <!-- Added margin-top for mobile header space -->
             <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight fade-in" style="animation-delay: 0.2s;">
                 <span class="block mb-2">Fatiguée de Lutter Financièrement ?</span>
                 <span class="gradient-text">Découvre la Révolution Digitale Qui Change des Vies.</span>
@@ -202,7 +244,9 @@
             <p class="text-lg md:text-2xl mb-8 max-w-2xl mx-auto font-light fade-in" style="animation-delay: 0.4s;">
                 Lance ta machine à cash avec notre système clé en main. Apprends, Revends, Encaisse 100% des profits. Sans créer de produit, sans stress, sans même montrer ton visage.
             </p>
-            
+            <a href="#" class="open-popup-trigger cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation fade-in" style="animation-delay: 0.6s;">
+                Accéder à la Formation <i class="fas fa-arrow-right ml-2"></i>
+            </a>
             <p class="mt-8 text-sm opacity-80 fade-in" style="animation-delay: 0.8s;">Rejoins des milliers de femmes qui ont déjà transformé leur avenir financier.</p>
         </div>
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -223,16 +267,16 @@
                 <p class="text-xl text-gray-600 mb-8">
                     Découvre comment des centaines de femmes ordinaires génèrent entre 2000€ et 10 000€ par mois grâce à cette méthode simple, sans être influenceuse, sans montrer leur visage et sans investissement financier.
                 </p>
-                
+
                 <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                    <a href="#inscription" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center pulse cta-button">
+                    <a href="Paiement DSA" class="open-popup-trigger bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center pulse cta-button" data-page-id="6817d711d8bcb3ca43b66669" id="page-link">
                         <i class="fas fa-rocket mr-2"></i> Je Démarre Mon Business Maintenant
                     </a>
                     <a href="#temoignages" class="bg-white border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center">
                         <i class="fas fa-play-circle mr-2"></i> Voir les Témoignages
                     </a>
                 </div>
-                
+
                 <div class="flex items-center gap-6">
                     <div class="flex -space-x-2">
                         <img src="https://images.unsplash.com/photo-1517677129300-07b130802f46?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMDN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMDh8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-10 h-10 rounded-full border-2 border-white">
@@ -242,11 +286,11 @@
                         <div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center text-xs font-bold border-2 border-white">+3190</div>
                     </div>
                     <p class="text-gray-600">
-                        <span class="font-bold text-pink-600">+3200 personnes</span> gênèrent des revenus confortablement pourquoi pas toi ? 
+                        <span class="font-bold text-pink-600">+3200 personnes</span> gênèrent des revenus confortablement pourquoi pas toi ?
                     </p>
                 </div>
             </div>
-            
+
             <div class="w-full lg:w-1/2 slide-in-right" style="animation-delay: 0.6s;">
                 <div class="relative">
                     <div class="absolute -top-6 -left-6 w-full h-full bg-purple-200 rounded-2xl transform rotate-3"></div>
@@ -254,11 +298,11 @@
                     <div class="relative bg-white shadow-xl rounded-2xl p-4 hero-animation">
                         <div class="aspect-w-16 aspect-h-9 mb-4">
                             <div class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded-xl overflow-hidden">
-                                <video src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/videos/ba526085f772b5ef.mp4" controls="" data-initial="true"></video>
-                                <img src="https://fakeimg.pl/800x450/FF5E94/FFFFFF" alt="Vidéo de présentation" class="w-full h-full object-cover">
+                                <!-- Remplacé l'image par la vidéo si elle existe -->
+                                <video src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/videos/ba526085f772b5ef.mp4" controls="" class="absolute top-0 left-0 w-full h-full object-cover" poster="https://fakeimg.pl/800x450/FF5E94/FFFFFF?text=Chargement...">Votre navigateur ne supporte pas la vidéo.</video>
                             </div>
                         </div>
-                        
+
                         <div class="bg-gray-50 rounded-xl p-6">
                             <div class="flex items-center mb-4">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
@@ -270,7 +314,7 @@
                                 </div>
                             </div>
                             <p class="text-gray-700 mb-4">
-                                "J'ai rejoins cette aventure de folie aprés avoir testé des dizaines de méthodes. J'avais un besoin urgent d'argent pour me sortir d'une situation financière compliquée.  C'est la seule formation qui m'a permis de générer un revenu rapide, constant et facilement, sans stress ni compétences techniques. Il suffit de faire du copier/coller en adaptant le contenu à la cible choisie 😍 "
+                                "J'ai rejoins cette aventure de folie aprés avoir testé des dizaines de méthodes. J'avais un besoin urgent d'argent pour me sortir d'une situation financière compliquée. C'est la seule formation qui m'a permis de générer un revenu rapide, constant et facilement, sans stress ni compétences techniques. Il suffit de faire du copier/coller en adaptant le contenu à la cible choisie 😍 "
                             </p>
                         </div>
                     </div>
@@ -287,21 +331,21 @@
             <div class="grid md:grid-cols-3 gap-8 text-left">
                 <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300">
                     <div class="text-4xl text-pink-500 mb-4"><i class="fas fa-sack-xmark"></i></div>
-                    <h3 class="text-xl font-bold mb-3 font-heading">Difficultés Financières</h3>
-                    <p class="text-gray-600">Les fins de mois sont difficiles, tu as l'impression de courir après l'argent sans jamais vraiment t'en sortir. L'épargne est un lointain souvenir.</p>
+                    <h3 class="text-xl font-bold mb-3 font-heading">Tes fins de mois sont difficiles</h3>
+                    <p class="text-gray-600">Tes finances sont toujours au plus bas, tu as l'impression de courir après l'argent sans jamais vraiment t'en sortir. L'épargne est un lointain souvenir ou n'a même jamais existé.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300">
                     <div class="text-4xl text-yellow-500 mb-4"><i class="fas fa-clock"></i></div>
-                    <h3 class="text-xl font-bold mb-3 font-heading">Manque de Temps</h3>
+                    <h3 class="text-xl font-bold mb-3 font-heading">Tu manque de Temps</h3>
                     <p class="text-gray-600">Entre le travail, la famille, les obligations... quand trouver le temps de construire un projet qui te tient à cœur et qui pourrait changer ta vie ?</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300">
                     <div class="text-4xl text-purple-500 mb-4"><i class="fas fa-brain"></i></div>
-                    <h3 class="text-xl font-bold mb-3 font-heading">Complexité Apparente</h3>
+                    <h3 class="text-xl font-bold mb-3 font-heading">Tu n'as pas les compétences</h3>
                     <p class="text-gray-600">Créer un business en ligne te semble une montagne insurmontable ? Technique, marketing, création de produit... Tu ne sais pas par où commencer.</p>
                 </div>
             </div>
-            <p class="mt-12 text-xl font-semibold text-gray-700">Et si je te disais qu'il existe une solution SIMPLE, RAPIDE et ACCESSIBLE pour enfin atteindre tes objectifs ?</p>
+            <p class="mt-12 text-xl font-semibold text-gray-700">Et si je te disais qu'il existe une solution SIMPLE, RAPIDE et ACCESSIBLE pour enfin atteindre tes objectifs les plus fous ?</p>
         </div>
     </section>
 
@@ -313,28 +357,28 @@
                 <!-- Step 1 -->
                 <div class="flex flex-col items-center glassmorphism p-6 rounded-xl">
                     <div class="bg-white text-purple-700 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">1</div>
-                    <i class="fas fa-tv text-4xl mb-3 text-yellow-300"></i>
+                    <i class="fas fa-tv text-4xl mb-1 text-yellow-300"></i>
                     <h3 class="text-lg font-semibold mb-2 font-heading">Visionne</h3>
                     <p class="text-sm opacity-90">Plonge dans les modules de formation clairs et concis pour maîtriser le système.</p>
                 </div>
                 <!-- Step 2 -->
                 <div class="flex flex-col items-center glassmorphism p-6 rounded-xl">
                     <div class="bg-white text-purple-700 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">2</div>
-                    <i class="fas fa-cogs text-4xl mb-3 text-yellow-300"></i>
+                    <i class="fas fa-cogs text-4xl mb-1 text-yellow-300"></i>
                     <h3 class="text-lg font-semibold mb-2 font-heading">Mets en Place</h3>
                     <p class="text-sm opacity-90">Configure ton système de vente automatique étape par étape (on t'aide si besoin !).</p>
                 </div>
                 <!-- Step 3 -->
                 <div class="flex flex-col items-center glassmorphism p-6 rounded-xl">
                     <div class="bg-white text-purple-700 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">3</div>
-                    <i class="fas fa-share-alt text-4xl mb-3 text-yellow-300"></i>
+                    <i class="fas fa-share-alt text-4xl mb-1 text-yellow-300"></i>
                     <h3 class="text-lg font-semibold mb-2 font-heading">Partage</h3>
                     <p class="text-sm opacity-90">Poste du contenu simple sur les réseaux (même anonymement) pour attirer tes clients.</p>
                 </div>
                 <!-- Step 4 -->
                 <div class="flex flex-col items-center glassmorphism p-6 rounded-xl">
                     <div class="bg-white text-purple-700 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">4</div>
-                    <i class="fas fa-hand-holding-usd text-4xl mb-3 text-yellow-300"></i>
+                    <i class="fas fa-hand-holding-usd text-4xl mb-1 text-yellow-300"></i>
                     <h3 class="text-lg font-semibold mb-2 font-heading">Encaisse</h3>
                     <p class="text-sm opacity-90">Reçois 100% des ventes directement sur ton compte. C'est aussi simple que ça !</p>
                 </div>
@@ -358,32 +402,32 @@
             <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center section-title">Les Bénéfices Concrets Pour Toi</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl shadow-lg hover:shadow-pink-200 transition duration-300">
-                    <div class="text-4xl gradient-text mb-4"><i class="fas fa-coins"></i></div>
+                    <div class="text-4xl gradient-text mb-1"><i class="fas fa-coins"></i></div>
                     <h3 class="text-xl font-bold mb-3 font-heading">Revenus 100% Pour Toi</h3>
                     <p class="text-gray-600">Chaque vente de la formation te rapporte au minimum 597€ directement. Pas de commission à reverser, 100% des bénéfices sont pour toi.</p>
                 </div>
                 <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl shadow-lg hover:shadow-pink-200 transition duration-300">
-                    <div class="text-4xl gradient-text mb-4"><i class="fas fa-umbrella-beach"></i></div>
+                    <div class="text-4xl gradient-text mb-1"><i class="fas fa-umbrella-beach"></i></div>
                     <h3 class="text-xl font-bold mb-3 font-heading">Liberté Géographique &amp; Temporelle</h3>
                     <p class="text-gray-600">Travaille d'où tu veux, quand tu veux. Quelques heures par semaine suffisent grâce au système automatisé.</p>
                 </div>
                 <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl shadow-lg hover:shadow-pink-200 transition duration-300">
-                    <div class="text-4xl gradient-text mb-4"><i class="fas fa-puzzle-piece"></i></div>
+                    <div class="text-4xl gradient-text mb-1"><i class="fas fa-puzzle-piece"></i></div>
                     <h3 class="text-xl font-bold mb-3 font-heading">Simplicité Maximale</h3>
                     <p class="text-gray-600">Pas besoin de créer de produit, de gérer un stock ou un SAV complexe. Tout est prêt à l'emploi.</p>
                 </div>
                 <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl shadow-lg hover:shadow-pink-200 transition duration-300">
-                    <div class="text-4xl gradient-text mb-4"><i class="fas fa-users"></i></div>
+                    <div class="text-4xl gradient-text mb-1"><i class="fas fa-users"></i></div>
                     <h3 class="text-xl font-bold mb-3 font-heading">Communauté Bienveillante</h3>
                     <p class="text-gray-600">Rejoins 2 groupes VIP privés pour échanger, apprendre et être soutenue par d'autres membres qui réussissent.</p>
                 </div>
                 <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl shadow-lg hover:shadow-pink-200 transition duration-300">
-                    <div class="text-4xl gradient-text mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="text-4xl gradient-text mb-1"><i class="fas fa-chalkboard-teacher"></i></div>
                     <h3 class="text-xl font-bold mb-3 font-heading">Accompagnement &amp; Coaching</h3>
                     <p class="text-gray-600">Profite de lives mensuels et d'un support continu pour t'aider à lancer et scaler ton activité sans limite de temps.</p>
                 </div>
                  <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl shadow-lg hover:shadow-pink-200 transition duration-300">
-                    <div class="text-4xl gradient-text mb-4"><i class="fas fa-brain"></i></div>
+                    <div class="text-4xl gradient-text mb-1"><i class="fas fa-brain"></i></div>
                     <h3 class="text-xl font-bold mb-3 font-heading">Compétences Marketing de Pointe</h3>
                     <p class="text-gray-600">Acquiers les vrais secrets du marketing digital que tu pourras appliquer pour ce business ou pour tes propres projets futurs.</p>
                 </div>
@@ -394,7 +438,7 @@
     <!-- Course Program Section -->
     <section id="programme" class="py-16 md:py-24 bg-gray-100 scroll-animation">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center section-title">Tout Ce Que Tu Vas Découvrir Dans La Formation Ultra Complète </h2>
+            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-1 text-center section-title">Tout Ce Que Tu Vas Découvrir Dans La Formation Ultra Complète </h2>
             <p class="text-lg text-gray-600 mb-10 text-center max-w-3xl mx-auto">Plus de 250 vidéos de formation ultra-complètes, conçues pour une application immédiate et des résultats rapides. Voici un aperçu détaillé :</p>
             <div class="max-w-4xl mx-auto accordion">
                 <!-- Module 1 -->
@@ -540,7 +584,7 @@
     <!-- Bonuses Section -->
     <section id="bonus" class="py-16 md:py-24 gradient-bg-alt text-white scroll-animation">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 section-title text-white">Et Ce N'est Pas Tout ! Tes Bonus Exclusifs Pour Une Réussite Maximale 🚀</h2>
+            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-1 section-title text-white">Et Ce N'est Pas Tout ! Tes Bonus Exclusifs Pour Une Réussite Maximale 🚀</h2>
             <p class="text-lg mb-10 max-w-3xl mx-auto opacity-90">Pour t'assurer de cartonner dès le début, j'ai inclus ces cadeaux d'une valeur inestimable :</p>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                 <div class="bg-white/20 p-6 rounded-xl backdrop-blur-md border border-white/30 shadow-lg hover:bg-white/30 transition duration-300">
@@ -574,8 +618,20 @@
                     <p class="opacity-90">Échange, apprends, applique et chiffre dans une communauté soudée et motivante.</p>
                 </div>
             </div>
-             <p class="mt-12 text-2xl font-bold">💥 TOUT EST PRÊT POUR TOI, PAS D'EXCUSE. PRENDS TA PLACE MAINTENANT ! 🚀</p>
-        </div>
+             <div class="max-w-3xl mx-auto bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl p-8 md:p-12 text-white shine-effect">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">
+                        💥EN PLUS DE TOUS CES BONUS, JE T'OFFRE UN COACHING GRATUIT POUR TE SOUTENIR DANS LA MISE EN PLACE DE TON BUSINESS EN LIGNE ! 🚀
+                    </h3>
+                    <p class="text-xl mb-8">
+                        Ces bonus ont une valeur de plus de 3000€, mais ils sont inclus GRATUITEMENT dans ton adhésion à la Digital Success Academy.
+                    </p>
+                    <a href="#inscription" class="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all inline-block cta-button">
+                        <i class="fas fa-rocket mr-2"></i> Je veux accéder à tous ces bonus
+                    </a>
+                </div>
+        </div><div class="mt-16 text-center">
+                <p class="mt-12 text-2xl font-bold">💥 TOUT EST PRÊT POUR TOI, PAS D'EXCUSE. PRENDS TA PLACE MAINTENANT ! 🚀</p>
+            </div>
     </section>
 
     <!-- Social Proof Section -->
@@ -608,13 +664,219 @@
             </div>
             <!-- Placeholder for more testimonials or results screenshots -->
              <div class="mt-12 text-center">
-                 <h3 class="text-2xl font-bold mb-6 font-heading">Des Résultats Concrets et Rapides !</h3>
-                 <div class="flex flex-wrap justify-center gap-4">
-                    <img src="https://fakeimg.pl/300x200/cccccc/999999?text=Capture+R%C3%A9sultat+1" alt="Preuve résultat 1" class="rounded-lg shadow-md">
-                    <img src="https://fakeimg.pl/300x200/cccccc/999999?text=Capture+R%C3%A9sultat+2" alt="Preuve résultat 2" class="rounded-lg shadow-md">
-                    <img src="https://fakeimg.pl/300x200/cccccc/999999?text=Capture+R%C3%A9sultat+3" alt="Preuve résultat 3" class="rounded-lg shadow-md">
-                 </div>
+    <h3 class="text-2xl font-bold mb-6 font-heading">Des Résultats Concrets et Rapides !</h3>
+    <div class="relative w-full max-w-7xl mx-auto overflow-hidden px-4 sm:px-6">
+        <!-- Carousel container -->
+        <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+            <!-- Image 1 -->
+            <div class="min-w-full">
+                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/c5ba1ed6e1af3f60.jpeg" alt="Image 1" class="w-full h-full object-cover rounded-lg shadow-lg">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 1</h3>
+                        <p class="text-gray-200 text-sm sm:text-base">Beautiful landscape view</p>
+                    </div>
+                </div>
             </div>
+            <!-- Image 2 -->
+            <div class="min-w-full">
+                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/941307db51102d6d.jpeg" alt="Image 2" class="w-full h-full object-cover rounded-lg shadow-lg">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 2</h3>
+                        <p class="text-gray-200 text-sm sm:text-base">Amazing architecture</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image 3 -->
+            <div class="min-w-full">
+                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/3d4ebb67a8fb0f02.jpeg" alt="Image 3" class="w-full h-full object-cover rounded-lg shadow-lg">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 3</h3>
+                        <p class="text-gray-200 text-sm sm:text-base">Urban exploration</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image 4 -->
+            <div class="min-w-full">
+                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/1e1a50306a66ca29.jpeg" alt="Image 4" class="w-full h-full object-cover rounded-lg shadow-lg">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 4</h3>
+                        <p class="text-gray-200 text-sm sm:text-base">Nature's beauty</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image 5 -->
+            <div class="min-w-full">
+                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/f640619dd35a98f3.jpeg" alt="Image 5" class="w-full h-full object-cover rounded-lg shadow-lg">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 5</h3>
+                        <p class="text-gray-200 text-sm sm:text-base">Mountain peaks</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image 6 -->
+            <div class="min-w-full">
+                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                    <img src="https://fakeimg.pl/1200x600" alt="Image 6" class="w-full h-full object-cover rounded-lg shadow-lg">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 6</h3>
+                        <p class="text-gray-200 text-sm sm:text-base">Ocean waves</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image 7 -->
+            <div class="min-w-full">
+                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                    <img src="https://fakeimg.pl/1200x600" alt="Image 7" class="w-full h-full object-cover rounded-lg shadow-lg">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 7</h3>
+                        <p class="text-gray-200 text-sm sm:text-base">Desert landscapes</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image 8 -->
+            <div class="min-w-full">
+                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/f640619dd35a98f3.jpeg" alt="Image 8" class="w-full h-full object-cover rounded-lg shadow-lg">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 8</h3>
+                        <p class="text-gray-200 text-sm sm:text-base">City skylines</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image 9 -->
+            <div class="min-w-full">
+                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                    <img src="https://fakeimg.pl/1200x600" alt="Image 9" class="w-full h-full object-cover rounded-lg shadow-lg">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 9</h3>
+                        <p class="text-gray-200 text-sm sm:text-base">Forest adventures</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image 10 -->
+            <div class="min-w-full">
+                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                    <img src="https://fakeimg.pl/1200x600" alt="Image 10" class="w-full h-full object-cover rounded-lg shadow-lg">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 10</h3>
+                        <p class="text-gray-200 text-sm sm:text-base">Winter wonderland</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <button id="prevBtn" class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white rounded-full p-2 sm:p-3 backdrop-blur-sm transition-all z-10">
+            <i class="fa fa-chevron-left text-base sm:text-xl"></i>
+        </button>
+        <button id="nextBtn" class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white rounded-full p-2 sm:p-3 backdrop-blur-sm transition-all z-10">
+            <i class="fa fa-chevron-right text-base sm:text-xl"></i>
+        </button>
+
+        <!-- Indicators -->
+        <div class="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2 z-10">
+            <div class="indicator active bg-white w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="0"></div>
+            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="1"></div>
+            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="2"></div>
+            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="3"></div>
+            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="4"></div>
+            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="5"></div>
+            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="6"></div>
+            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="7"></div>
+            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="8"></div>
+            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="9"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const carousel = document.getElementById('carousel');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                const indicators = document.querySelectorAll('.indicator');
+                const totalSlides = 10;
+                let currentIndex = 0;
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                // Functions
+                function updateCarousel() {
+                    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    
+                    // Update indicators
+                    indicators.forEach((indicator, index) => {
+                        if (index === currentIndex) {
+                            indicator.classList.add('bg-white');
+                            indicator.classList.remove('bg-white/50');
+                        } else {
+                            indicator.classList.remove('bg-white');
+                            indicator.classList.add('bg-white/50');
+                        }
+                    });
+                }
+                
+                function goToNext() {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateCarousel();
+                }
+                
+                function goToPrev() {
+                    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                    updateCarousel();
+                }
+                
+                // Event listeners
+                nextBtn.addEventListener('click', goToNext);
+                prevBtn.addEventListener('click', goToPrev);
+                
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateCarousel();
+                    });
+                });
+                
+                // Touch events for mobile swipe
+                carousel.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                carousel.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    if (touchEndX < touchStartX - swipeThreshold) {
+                        goToNext();
+                    } else if (touchEndX > touchStartX + swipeThreshold) {
+                        goToPrev();
+                    }
+                }
+                
+                // Auto-play
+                let interval = setInterval(goToNext, 5000);
+                
+                // Pause auto-play when hovering over the carousel
+                carousel.addEventListener('mouseenter', () => {
+                    clearInterval(interval);
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    interval = setInterval(goToNext, 5000);
+                });
+                
+                // Initialize
+                updateCarousel();
+            });
+        </script>
+    </div>
+</div>
         </div>
     </section>
 
@@ -623,35 +885,22 @@
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-5xl font-heading font-black mb-6">Prête à Prendre Ton Avenir Financier en Main ?</h2>
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">Accède instantanément à la formation complète, aux bonus exclusifs et à la communauté pour seulement <span class="font-bold text-yellow-300">597€</span>.</p>
-            <div class="max-w-lg mx-auto bg-gradient-to-br from-purple-600 via-pink-600 to-red-500 p-8 md:p-12 rounded-2xl shadow-2xl text-white transform transition duration-500 hover:scale-105">
+            <div class="max-w-lg mx-auto bg-gradient-to-br from-purple-600 via-pink-600 to-red-500 p-8 md:p-12 rounded-2xl shadow-2xl text-white transform transition duration-500 hover:scale-105 mb-0">
                 <h3 class="text-2xl font-semibold mb-4">Accède à Tout Ça Pour Un Prix Exceptionnel</h3>
                 <p class="text-7xl md:text-8xl font-extrabold mb-3">597€</p>
                 <p class="text-xl mb-6">(Payable en 3 fois <span class="font-bold">199€</span> sans frais)</p>
                 <p class="text-2xl font-semibold text-yellow-300 mb-10">Rentabilisé en UNE SEULE vente ! 🔥</p>
-                <a href="#cta-final" class="cta-button bg-white text-purple-700 text-xl md:text-2xl font-bold py-4 px-10 rounded-full shadow-lg inline-block hover:bg-gray-100">
-                    Oui, Je Veux Accéder Maintenant ! <i class="fas fa-check-circle ml-2"></i>
-                </a>
+                
                  <p class="mt-6 text-gray-200 text-sm">Formation + Droit de Revente + Tous les Bonus Inclus</p>
             </div>
-            <div class="mt-10">
-                <a href="#" id="open-dsa-popup" class="cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-5 px-12 rounded-full text-2xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation">
-                    Oui, Je Veux Accéder à la DSA Maintenant ! <i class="fas fa-lock ml-2"></i>
-                </a>
-            </div>
+            <a href="Paiement DSA" id="page-link" class="cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-5 px-12 rounded-full text-2xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation" data-page-id="6817d711d8bcb3ca43b66669">
+                Oui, Je Veux Accéder à la DSA Maintenant ! <i class="fas fa-lock ml-2"></i>
+            </a>
             <p class="mt-8 text-lg font-semibold">⚠️ Attention : Cette offre et ce business sont en pleine explosion. Ne manque pas le train de l'opportunité la plus simple et rentable de 2025 ! Les places avec accompagnement personnalisé sont limitées.</p>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <div id="popup-container" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-11/12 max-w-md transform transition-all duration-300 scale-95 opacity-0" id="popup-content">
-            <div class="relative">
-                <div class="absolute -top-16 -right-16 w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-20"></div>
-                <div class="absolute -bottom-16 -left-16 w-32 h-32 bg-gradient-to-tr from-pink-500 to-yellow-400 rounded-full opacity-20"></div>
-            </div>
-        </div>
-    </div>
-
     <section id="faq" class="py-16 md:py-24 bg-gray-50 scroll-animation">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center section-title">Questions Fréquentes</h2>
@@ -729,163 +978,161 @@
                 <a href="#" class="hover:text-white">Mentions Légales</a>
                 <a href="#" class="hover:text-white">Politique de Confidentialité</a>
                 <a href="#" class="hover:text-white">Contact</a>
-            </div>
+            </div><a href="Page de Remerciements " id="page-link" data-page-id="6818f8f2d8bcb3ca43b66d67" class="text-gray-700 hover:text-blue-500"></a>
         </div>
     </footer>
 
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Shrink header on scroll
-        const header = document.getElementById('site-header');
-        let lastScrollTop = 0;
-        
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 50) {
-                header.classList.add('h-16');
-                header.classList.remove('h-20');
-            } else {
-                header.classList.add('h-20');
-                header.classList.remove('h-16');
-            }
-            
-            lastScrollTop = scrollTop;
-        });
-
-        // Ouvre le pop-up
-        document.getElementById('open-dsa-popup').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('dsa-popup-overlay').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Empêche le scroll du fond
-        });
-        
-        // Ferme le pop-up
-        document.getElementById('close-dsa-popup').addEventListener('click', function() {
-            document.getElementById('dsa-popup-overlay').style.display = 'none';
-            document.body.style.overflow = '';
-        });
-        
-        // Ferme le pop-up si clic en dehors du contenu
-        document.getElementById('dsa-popup-overlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Accordion Logic
-        const accordionButtons = document.querySelectorAll('.accordion-button');
-        accordionButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                const isActive = button.classList.contains('active');
-
-                button.classList.toggle('active');
-                if (!isActive) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } else {
-                    content.style.maxHeight = null;
-                }
-            });
-        });
-
-        // Scroll Animation Logic
-        const scrollElements = document.querySelectorAll('.scroll-animation');
-
-        const elementInView = (el, dividend = 1) => {
-            const elementTop = el.getBoundingClientRect().top;
-            return (
-                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-            );
-        };
-
-        const displayScrollElement = (element) => {
-            element.classList.add('visible');
-        };
-
-        const hideScrollElement = (element) => {
-            element.classList.remove('visible');
-        };
-
-        const handleScrollAnimation = () => {
-            scrollElements.forEach((el) => {
-                if (elementInView(el, 1.15)) { // Trigger animation slightly before element is fully in view
-                    displayScrollElement(el);
-                }
-            });
-        };
-
-        // Initial check in case elements are already in view
-        handleScrollAnimation();
-        window.addEventListener('scroll', handleScrollAnimation);
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        function openPopup() {
-            document.getElementById('popup-overlay').classList.remove('hidden');
-            document.getElementById('popup-overlay').classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('button, a');
-            buttons.forEach(button => {
-                if (button.textContent.includes('Oui, Je Veux Accéder à la DSA Maintenant')) {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        document.getElementById('dsa-popup-overlay').style.display = 'flex';
-                        document.body.style.overflow = 'hidden';
-                    });
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Shrink header on scroll
+            const header = document.getElementById('site-header');
+            if (header) {
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', () => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    if (scrollTop > 50) {
+                        header.classList.add('h-16');
+                        header.classList.remove('h-20');
+                    } else {
+                        header.classList.add('h-20');
+                        header.classList.remove('h-16');
+                    }
+                    lastScrollTop = scrollTop;
+                });
+            }
+
+            // Popup Logic
+            const popupOverlay = document.getElementById('dsa-popup-overlay');
+            const closePopupButton = document.getElementById('close-dsa-popup');
+            const openPopupButtons = document.querySelectorAll('.open-popup-trigger');
+
+            function openPopup(e) {
+                e.preventDefault();
+                if (popupOverlay) {
+                    popupOverlay.style.display = 'flex';
+                    document.body.classList.add('popup-open'); // Use class for body scroll lock
                 }
+            }
+
+            function closePopup() {
+                if (popupOverlay) {
+                    popupOverlay.style.display = 'none';
+                    document.body.classList.remove('popup-open');
+                }
+            }
+
+            openPopupButtons.forEach(button => {
+                button.addEventListener('click', openPopup);
             });
-            
-            const popupContainer = document.getElementById('popup-container');
-            const popupContent = document.getElementById('popup-content');
-            
-            function showPopup() {
-                popupContainer.classList.remove('hidden');
-                setTimeout(() => {
-                    popupContent.classList.remove('scale-95', 'opacity-0');
-                    popupContent.classList.add('scale-100', 'opacity-100');
-                }, 10);
+
+            if (closePopupButton) {
+                closePopupButton.addEventListener('click', closePopup);
             }
-            
-            function hidePopup() {
-                popupContent.classList.remove('scale-100', 'opacity-100');
-                popupContent.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => {
-                    popupContainer.classList.add('hidden');
-                }, 300);
-            }
-            
-            if (popupContainer) {
-                popupContainer.addEventListener('click', function(e) {
-                    if (e.target === popupContainer) {
-                        hidePopup();
+
+            // Close popup if clicking on the overlay background
+            if (popupOverlay) {
+                popupOverlay.addEventListener('click', function(e) {
+                    if (e.target === popupOverlay) {
+                        closePopup();
                     }
                 });
             }
+
+            // Close popup with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "Escape" && popupOverlay && popupOverlay.style.display === 'flex') {
+                    closePopup();
+                }
+            });
+
+
+            // Accordion Logic
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const isActive = button.classList.contains('active');
+
+                    // Optional: Close other open accordions
+                    // accordionButtons.forEach(otherButton => {
+                    //     if (otherButton !== button && otherButton.classList.contains('active')) {
+                    //         otherButton.classList.remove('active');
+                    //         otherButton.nextElementSibling.style.maxHeight = null;
+                    //     }
+                    // });
+
+                    button.classList.toggle('active');
+                    if (!isActive) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+
+            // Scroll Animation Logic
+            const scrollElements = document.querySelectorAll('.scroll-animation');
+
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+
+            const displayScrollElement = (element) => {
+                element.classList.add('visible');
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.15)) { // Trigger animation slightly before element is fully in view
+                        displayScrollElement(el);
+                    }
+                    // Optional: Hide element again if scrolled back up
+                    // else { element.classList.remove('visible'); }
+                });
+            };
+
+            // Initial check in case elements are already in view
+            handleScrollAnimation();
+            window.addEventListener('scroll', handleScrollAnimation);
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Prevent scroll if it's a popup trigger
+                    if (this.classList.contains('open-popup-trigger')) {
+                       return; // Let the popup logic handle it
+                    }
+
+                    const targetId = this.getAttribute('href');
+                    // Ensure it's a valid ID selector and not just "#"
+                    if (targetId && targetId.length > 1 && targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            e.preventDefault();
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                            // Close mobile menu if open after clicking a link
+                            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                                mobileMenu.classList.add('hidden');
+                            }
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
