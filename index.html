@@ -10,20 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const btn = document.getElementById('mobile-menu-button');
-  const menu = document.getElementById('mobile-menu');
-  
-  btn.addEventListener('click', function() {
-    menu.classList.toggle('hidden');
-  });
-});
-</script>
-
-      body {
+        body {
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden; /* Empêche le défilement horizontal */
+            overflow-x: hidden;
         }
         .font-heading {
             font-family: 'Montserrat', sans-serif;
@@ -64,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         .fade-in {
             animation: fadeIn 1s ease-out forwards;
-            opacity: 0; /* Start hidden */
+            opacity: 0;
         }
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
@@ -89,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
             transition: max-height 0.5s ease-out;
         }
         .accordion-button.active + .accordion-content {
-            max-height: 10000px; /* Adjust as needed, or use JS to set scrollHeight */
+            max-height: 10000px;
             transition: max-height 1s ease-in;
         }
         .accordion-button .accordion-icon {
@@ -114,30 +103,22 @@ document.addEventListener('DOMContentLoaded', function() {
             border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         }
-        
-        }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="description" content="Découvre le SYSTÈME DSA, la méthode qui cartonne en 2025 pour créer ton business digital rentable en 1 semaine. Apprends à générer des revenus passifs en vendant des produits digitaux grâce à un système éprouvé utilisé par des centaines d'entrepreneurs. Résultats rapides et accompagnement inclus.">
-  <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
-
-        <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden animated-gradient-bg px-4 py-20">
         <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-all duration-300" id="site-header">
             <div class="container mx-auto px-4">
                 <div class="flex items-center justify-between h-20">
-                    <!-- Logo -->
                     <div class="flex-shrink-0">
                         <a href="#" class="flex items-center">
-                            <!-- Vous pouvez ajouter votre logo ici, ex: <img src="logo.png" alt="Logo"> -->
                         </a>
                     </div>
-
-                    <!-- Desktop Navigation -->
                     <nav class="hidden md:flex space-x-10">
-                        <a href="#hero" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
+                        <a href="#Nouveau en 2025" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
                             Présentation
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                         </a>
@@ -152,42 +133,33 @@ document.addEventListener('DOMContentLoaded', function() {
                         <a href="#bonus" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
                             Tes bonus<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                         </a>
-
                     </nav>
-
-                    <!-- CTA Buttons -->
                     <div class="hidden md:flex items-center space-x-4">
                         <a href="#cta" class="px-14 py-3 bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200 shadow-md hover:shadow-lg">
-  JE ME LANCE MAINTENANT
-</a>
+                            JE ME LANCE MAINTENANT
+                        </a>
                     </div>
-
-                   <!-- Mobile menu button -->
-<div class="md:hidden flex items-center">
-    <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu" id="mobile-menu-button">
-        <i class="fa fa-bars text-xl"></i>
-    </button>
-    <!-- Bouton CTA mobile toujours visible -->
-    <a href="#cta" class="open-popup-trigger ml-2 px-4 py-2 bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200 shadow-md hover:shadow-lg md:hidden" data-page-id="6817d711d8bcb3ca43b66669">
-        JE ME LANCE MAINTENANT
-    </a>
-</div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu" id="mobile-menu-button">
+                            <i class="fa fa-bars text-xl"></i>
+                        </button>
+                        <a href="#cta" class="open-popup-trigger ml-2 px-4 py-2 bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200 shadow-md hover:shadow-lg md:hidden">
+                            JE ME LANCE MAINTENANT
+                        </a>
+                    </div>
                 </div>
-
-                <!-- Mobile Navigation -->
                 <div class="md:hidden hidden" id="mobile-menu">
                     <div class="px-2 pt-1 pb-1 space-y-1 bg-white rounded-lg shadow-lg">
                         <a href="#hero" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Présentation</a>
                         <a href="#benefices" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Tes bénéfices</a>
                         <a href="#programme" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Ton programme</a>
                         <a href="#bonus" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Tes bonus</a>
-                        
                     </div>
                 </div>
             </div>
         </header>
         <div class="absolute inset-0 bg-black opacity-30"></div>
-        <div class="relative z-10 max-w-4xl mx-auto mt-20 md:mt-0"> <!-- Added margin-top for mobile header space -->
+        <div class="relative z-10 max-w-4xl mx-auto mt-20 md:mt-0">
             <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight fade-in" style="animation-delay: 0.2s;">
                 <span class="block mb-2">Fatiguée de Lutter Financièrement ?</span>
                 <span class="gradient-text">Découvre la Révolution Digitale Qui Change des Vies.</span>
@@ -195,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p class="text-lg md:text-2xl mb-1 max-w-2xl mx-auto font-light fade-in" style="animation-delay: 0.4s;">
                 Lance ta machine à cash avec notre système clé en main. Apprends, Revends, Encaisse 100% des profits. Sans créer de produit, sans stress, sans même montrer ton visage.
             </p>
-            <a href="#" class="open-popup-trigger cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation fade-in" style="animation-delay: 0.6s;" data-page-id="6817d711d8bcb3ca43b66669">
+            <a href="#cta" class="open-popup-trigger cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation fade-in" style="animation-delay: 0.6s;" data-page-id="6817d711d8bcb3ca43b66669">
                 Accéder à la Formation <i class="fas fa-arrow-right ml-2"></i>
             </a>
             <p class="mt-1 text-sm opacity-80 fade-in" style="animation-delay: 0.8s;">Rejoins des milliers de femmes qui ont déjà transformé leur avenir financier.</p>
@@ -204,9 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <i class="fas fa-chevron-down text-white text-3xl opacity-70"></i>
         </div>
     </section>
-
-    <!-- Video Section -->
-    <div class="container mx-auto px-4 md:px-8 py-16 md:py-20 lg:py-24">
+    <section id="Nouveau en 2025" <div="" class="container mx-auto px-4 md:px-8 py-16 md:py-20 lg:py-24">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
             <div class="w-full lg:w-1/2 slide-in-left" style="animation-delay: 0.3s;">
                 <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
@@ -218,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="text-xl text-gray-600 mb-8">
                     Découvre comment des centaines de femmes ordinaires génèrent entre 2000€ et 10 000€ par mois grâce à cette méthode simple, sans être influenceuse, sans montrer leur visage et sans investissement financier.
                 </p>
-
                 <div class="flex flex-col sm:flex-row gap-4 mb-8">
                     <a href="#cta" class="open-popup-trigger bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center pulse cta-button">
                         Je Démarre Mon Business Maintenant
@@ -227,8 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <i class="fas fa-play-circle mr-2"></i> Voir les Témoignages
                     </a>
                 </div>
-
-                <div class="flex flex-col sm:flex-row items-center gap-1 sm:gap-20">
+                <div class="flex flex-col sm:flex-row items-center gap-1 sm:gap-28">
                   <div class="flex -space-x-2 mb-2 sm:mb-0">
                     <img src="https://images.unsplash.com/photo-1517677129300-07b130802f46?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMDN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMDh8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white">
                     <img src="https://images.unsplash.com/photo-1534278221230-84061d5f99da?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMTN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMzl8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white">
@@ -243,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
                   </p>
                 </div>
             </div>
-
             <div class="w-full lg:w-1/2 slide-in-right" style="animation-delay: 0.6s;">
                 <div class="relative">
                     <div class="absolute -top-6 -left-6 w-full h-full bg-purple-200 rounded-2xl transform rotate-3"></div>
@@ -254,11 +221,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <video src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/videos/ba526085f772b5ef.mp4" controls="" class="absolute top-0 left-0 w-full h-full object-cover" poster="https://fakeimg.pl/800x450/FF5E94/FFFFFF?text=Chargement...">Votre navigateur ne supporte pas la vidéo.</video>
                             </div>
                         </div>
-
                         <div class="bg-gray-50 rounded-xl p-6">
                             <div class="flex items-center mb-4">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/65680dc65b508088.jpeg" alt="Fondatrice" class="w-full h-full object-cover">
+                                    <img src="https://images.unsplash.com/photo-1483884105135-c06ea81a7a80?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHw0NTR8fHdvbWFuJTIwcGMlMjBjb2ZmZWUlMjB8ZW58MHwwfHx8MTc0NjU2MDI1OXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Fondatrice" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h3 class="font-bold text-lg">Najet</h3>
@@ -273,10 +239,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Problem Section -->
-    <section id="probleme" class="py-16 md:py-24 bg-gradient-to-b from-purple-50 to-white scroll-animation">
+    </section>
+    <section id="probleme" class="py-10 md:py-24 bg-gradient-to-b from-purple-50 to-white scroll-animation">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 section-title">Te Reconnais-tu Dans Ces Situations ?</h2>
             <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">Tu rêves d'indépendance financière, mais tu te sens bloquée, dépassée, ou tu penses que c'est trop compliqué ?</p>
@@ -300,34 +264,28 @@ document.addEventListener('DOMContentLoaded', function() {
             <p class="mt-12 text-xl font-semibold text-gray-700">Et si je te disais qu'il existe une solution SIMPLE, RAPIDE et ACCESSIBLE pour enfin atteindre tes objectifs les plus fous ?</p>
         </div>
     </section>
-
-    <!-- Solution Section -->
     <section id="solution" class="py-16 md:py-24 gradient-bg text-white scroll-animation">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center section-title text-white">La Solution : Ton Business Clé en Main en 4 Étapes Simples</h2>
             <div class="max-w-5xl mx-auto grid md:grid-cols-4 gap-8 text-center">
-                <!-- Step 1 -->
                 <div class="flex flex-col items-center glassmorphism p-6 rounded-xl">
                     <div class="bg-white text-purple-700 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">1</div>
                     <i class="fas fa-tv text-4xl mb-1 text-yellow-300"></i>
                     <h3 class="text-lg font-semibold mb-2 font-heading">Visionne</h3>
                     <p class="text-sm opacity-90">Plonge dans les modules de formation clairs et concis pour maîtriser le système.</p>
                 </div>
-                <!-- Step 2 -->
                 <div class="flex flex-col items-center glassmorphism p-6 rounded-xl">
                     <div class="bg-white text-purple-700 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">2</div>
                     <i class="fas fa-cogs text-4xl mb-1 text-yellow-300"></i>
                     <h3 class="text-lg font-semibold mb-2 font-heading">Mets en Place</h3>
                     <p class="text-sm opacity-90">Configure ton système de vente automatique étape par étape (on t'aide si besoin !).</p>
                 </div>
-                <!-- Step 3 -->
                 <div class="flex flex-col items-center glassmorphism p-6 rounded-xl">
                     <div class="bg-white text-purple-700 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">3</div>
                     <i class="fas fa-share-alt text-4xl mb-1 text-yellow-300"></i>
                     <h3 class="text-lg font-semibold mb-2 font-heading">Partage</h3>
                     <p class="text-sm opacity-90">Poste du contenu simple sur les réseaux (même anonymement) pour attirer tes clients.</p>
                 </div>
-                <!-- Step 4 -->
                 <div class="flex flex-col items-center glassmorphism p-6 rounded-xl">
                     <div class="bg-white text-purple-700 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">4</div>
                     <i class="fas fa-hand-holding-usd text-4xl mb-1 text-yellow-300"></i>
@@ -347,8 +305,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </section>
-
-    <!-- Benefits Section -->
     <section id="benefices" class="py-16 md:py-24 bg-white scroll-animation">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center section-title">Les Bénéfices Concrets Pour Toi</h2>
@@ -386,14 +342,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </section>
-
-    <!-- Course Program Section -->
     <section id="programme" class="py-16 md:py-24 bg-gray-100 scroll-animation">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-heading font-bold mb-1 text-center section-title">Tout Ce Que Tu Vas Découvrir Dans La Formation Ultra Complète </h2>
             <p class="text-lg text-gray-600 mb-10 text-center max-w-3xl mx-auto">Plus de 250 vidéos de formation ultra-complètes, conçues pour une application immédiate et des résultats rapides. Voici un aperçu détaillé :</p>
             <div class="max-w-4xl mx-auto accordion">
-                <!-- Module 1 -->
                 <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center bg-gradient-to-r from-purple-100 to-pink-100 hover:bg-gradient-to-r hover:from-purple-200 hover:to-pink-200 transition duration-300">
                         <span>1 - COMMENCEZ ICI !</span>
@@ -414,7 +367,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         </ul>
                     </div>
                 </div>
-                <!-- Module 2 -->
                 <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center bg-gradient-to-r from-purple-100 to-pink-100 hover:bg-gradient-to-r hover:from-purple-200 hover:to-pink-200 transition duration-300">
                         <span>2 - LE LANCEMENT</span>
@@ -431,7 +383,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <ul class="list-disc list-inside space-y-1 text-gray-700"><li>C'est quoi un produit digital ?</li><li>Comment créer un produit digital ?</li><li>Guidelines produits digitaux</li><li>La règle avant de créer son produit digital !</li><li>Étapes avant de créer un produit digital</li><li>Créer un produit avec l'IA en 5 min</li><li>101 idées de produits digitaux à vendre</li><li>Où héberger votre produit digital ?</li><li>Comment protéger votre produit digital ?</li><li>Type de communautés</li><li>Validation produits digitaux</li></ul>
                     </div>
                 </div>
-                <!-- Module 3 -->
                  <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center bg-gradient-to-r from-purple-100 to-pink-100 hover:bg-gradient-to-r hover:from-purple-200 hover:to-pink-200 transition duration-300">
                         <span>3 - LES STRATÉGIES DE CONTENUS</span>
@@ -450,7 +401,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <ul class="list-disc list-inside space-y-1 text-gray-700"><li>Copywriting de A à Z</li><li>Culture Copywriting</li><li>+ 1000 Hooks formula</li><li>Le Secret Pour Vendre</li></ul>
                     </div>
                 </div>
-                <!-- Module 4 -->
                 <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center bg-gradient-to-r from-purple-100 to-pink-100 hover:bg-gradient-to-r hover:from-purple-200 hover:to-pink-200 transition duration-300">
                         <span>4 - INSTAGRAM / TIKTOK</span>
@@ -463,7 +413,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <ul class="list-disc list-inside space-y-1 text-gray-700"><li>Comment Marche l'algo de Tiktok</li><li>Trouver la viralité sur Tiktok</li><li>Créer de la viralité sur Tiktok</li><li>Le reposting sur Tiktok</li><li>Répondre aux Msgs Tiktok</li><li>Automatisation sur Tiktok</li><li>Branding &amp; Guidelines Profil</li></ul>
                     </div>
                 </div>
-                <!-- Module 5 -->
                  <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center bg-gradient-to-r from-purple-100 to-pink-100 hover:bg-gradient-to-r hover:from-purple-200 hover:to-pink-200 transition duration-300">
                         <span>5 - LES OUTILS</span>
@@ -484,7 +433,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <ul class="list-disc list-inside space-y-1 text-gray-700"><li>Funnels Vs Website Vs SAAS LP</li><li>Pourquoi Choisir Stan pour se lancer ?</li><li>Comment configurer votre Stan Store ?</li><li>Comment personnaliser votre boutique ?</li><li>Collecter les paiements sur Stan Store</li><li>Ajouter un Lead magnet ou Produit PLR</li><li>Ressources (Design + TXT)</li><li>Emailing &amp; Follow up</li><li>Store - Copier Coller</li></ul>
                     </div>
                 </div>
-                <!-- Module 6 -->
                  <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center bg-gradient-to-r from-purple-100 to-pink-100 hover:bg-gradient-to-r hover:from-purple-200 hover:to-pink-200 transition duration-300">
                         <span>6 - LES STRATÉGIES DE VENTE</span>
@@ -497,7 +445,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <ul class="list-disc list-inside space-y-1 text-gray-700"><li>Growth Hacking Intro</li><li>Stratégie Copycat - Traduction</li><li>Stratégie 1 Contenu - 15 fois / jour</li><li>Stratégie 60 fois / jour</li><li>Stratégie - Devenir Media</li><li>Créer des nouveaux comptes</li><li>Reposting Viralité</li></ul>
                     </div>
                 </div>
-                 <!-- Module 7 -->
                  <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center bg-gradient-to-r from-purple-100 to-pink-100 hover:bg-gradient-to-r hover:from-purple-200 hover:to-pink-200 transition duration-300">
                         <span>7 - LA REVENTE</span>
@@ -514,7 +461,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <ul class="list-disc list-inside space-y-1 text-gray-700"><li>Pourquoi choisir l'affiliate ?</li><li>Comment ça marche ?</li><li>DSA Affiliate - 200 € + 50 € + 200 € /mois</li><li>DSA Affiliate - Update</li><li>PRO Affiliate - 1000 €</li><li>Comment Vendre Ces programmes ?</li><li>Comment recevoir les paiements</li></ul>
                     </div>
                 </div>
-                 <!-- Module 8, 9, 10 -->
                  <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center bg-gradient-to-r from-purple-100 to-pink-100 hover:bg-gradient-to-r hover:from-purple-200 hover:to-pink-200 transition duration-300">
                         <span>8 - 9 - 10 - RESSOURCES, VIRALITÉ &amp; COMPLÉMENTS</span>
@@ -532,8 +478,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </section>
-
-    <!-- Bonuses Section -->
     <section id="bonus" class="py-16 md:py-24 gradient-bg-alt text-white scroll-animation">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-heading font-bold mb-1 section-title text-white">Et Ce N'est Pas Tout ! Tes Bonus Exclusifs Pour Une Réussite Maximale 🚀</h2>
@@ -577,7 +521,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p class="text-xl mb-8">
                         Ces bonus ont une valeur de plus de 3000€, mais ils sont inclus GRATUITEMENT dans ton adhésion à la Digital Success Academy.
                     </p>
-                    <a href="" cta"="" class="open-popup-trigger bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all inline-block cta-button" data-page-id="6817d711d8bcb3ca43b66669">
+                    <a href="#cta" class="open-popup-trigger bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all inline-block cta-button">
                         <i class="fas fa-rocket mr-2"></i> Je veux accéder à tous ces bonus
                     </a>
                 </div>
@@ -585,28 +529,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="mt-12 text-2xl font-bold text-white">💥 TOUT EST PRÊT POUR TOI, PAS D'EXCUSE. PRENDS TA PLACE MAINTENANT ! 🚀</p>
             </div>
     </section>
-
-    <!-- Social Proof Section -->
     <section id="temoignages" class="py-16 md:py-24 bg-white scroll-animation">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center section-title">Elles Ont Transformé Leur Vie Avec La Digital Success Academy</h2>
             <p class="text-lg text-gray-600 mb-10 text-center max-w-3xl mx-auto">Ne me crois pas sur parole, écoute ce que disent les femmes qui ont déjà rejoint l'aventure :</p>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200">
                     <img src="https://images.unsplash.com/photo-1503945438517-f65904a52ce6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwyMTJ8fHdvbWFufGVufDB8MHx8fDE3NDYxMTc1MjZ8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Témoignage cliente 1" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-pink-300">
                     <p class="text-gray-600 italic mb-4">"J'étais sceptique au début, mais la DSA a dépassé toutes mes attentes ! J'ai fait ma première vente en moins de 48h. C'est incroyable, simple et tellement puissant. Merci !"</p>
                     <p class="font-bold text-purple-700">- Sophie L.</p>
                     <p class="text-sm text-yellow-600">Maman au foyer</p>
                 </div>
-                <!-- Testimonial 2 -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200">
                     <img src="https://images.unsplash.com/photo-1432807653616-37f5f5c2508e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxOTl8fHdvbWFufGVufDB8MHx8fDE3NDYxMTc1MTJ8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Témoignage cliente 2" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-purple-300">
                     <p class="text-gray-600 italic mb-4">"Enfin une formation qui tient ses promesses ! Le système clé en main est génial, et la communauté est un vrai plus. J'ai pu générer un complément de revenu conséquent sans stress."</p>
                     <p class="font-bold text-purple-700">- Amina K.</p>
                     <p class="text-sm text-yellow-600">Employée à mi-temps</p>
                 </div>
-                <!-- Testimonial 3 -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200">
                     <img src="https://images.unsplash.com/photo-1635862626416-ed76c1b25919?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHw0NDN8fHdvbWFufGVufDB8Mnx8fDE3NDYxMTc3NDd8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Témoignage cliente 3" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-yellow-300">
                     <p class="text-gray-600 italic mb-4">"La meilleure décision de ma vie ! J'ai appris énormément sur le marketing digital et la revente de la formation m'a permis de quitter mon job alimentaire. Je suis enfin libre financièrement !"</p>
@@ -614,13 +553,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p class="text-sm text-yellow-600">Ancienne étudiante</p>
                 </div>
             </div>
-            <!-- Placeholder for more testimonials or results screenshots -->
              <div class="mt-12 text-center">
                 <h3 class="text-2xl font-bold mb-6 font-heading">Des Résultats Concrets et Rapides !</h3>
                 <div class="relative w-full max-w-7xl mx-auto overflow-hidden px-4 sm:px-6">
-                    <!-- Carousel container -->
                     <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
-                        <!-- Image 1 -->
                         <div class="min-w-full">
                             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
                                 <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/c5ba1ed6e1af3f60.jpeg" alt="Témoignage résultat 1" class="w-full h-full object-cover rounded-lg shadow-lg">
@@ -630,7 +566,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </div>
-                        <!-- Image 2 -->
                         <div class="min-w-full">
                             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
                                 <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/941307db51102d6d.jpeg" alt="Témoignage résultat 2" class="w-full h-full object-cover rounded-lg shadow-lg">
@@ -640,7 +575,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </div>
-                        <!-- Image 3 -->
                         <div class="min-w-full">
                             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
                                 <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/3d4ebb67a8fb0f02.jpeg" alt="Témoignage résultat 3" class="w-full h-full object-cover rounded-lg shadow-lg">
@@ -650,7 +584,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </div>
-                        <!-- Image 4 -->
                         <div class="min-w-full">
                             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
                                 <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/1e1a50306a66ca29.jpeg" alt="Témoignage résultat 4" class="w-full h-full object-cover rounded-lg shadow-lg">
@@ -660,7 +593,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </div>
-                        <!-- Image 5 -->
                         <div class="min-w-full">
                             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
                                 <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/f640619dd35a98f3.jpeg" alt="Témoignage résultat 5" class="w-full h-full object-cover rounded-lg shadow-lg">
@@ -670,7 +602,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </div>
-                         <!-- Image 6 (Placeholder) -->
                         <div class="min-w-full">
                             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
                                 <img src="https://fakeimg.pl/1200x600/cccccc/909090?text=R%C3%A9sultat+6" alt="Témoignage résultat 6" class="w-full h-full object-cover rounded-lg shadow-lg">
@@ -680,7 +611,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </div>
-                        <!-- Image 7 (Placeholder) -->
                         <div class="min-w-full">
                             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
                                 <img src="https://fakeimg.pl/1200x600/cccccc/909090?text=R%C3%A9sultat+7" alt="Témoignage résultat 7" class="w-full h-full object-cover rounded-lg shadow-lg">
@@ -690,7 +620,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </div>
-                         <!-- Image 8 (Duplicate of 5, kept for consistency with original count) -->
                         <div class="min-w-full">
                             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
                                 <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/f640619dd35a98f3.jpeg" alt="Témoignage résultat 8" class="w-full h-full object-cover rounded-lg shadow-lg">
@@ -700,7 +629,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </div>
-                        <!-- Image 9 (Placeholder) -->
                         <div class="min-w-full">
                             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
                                 <img src="https://fakeimg.pl/1200x600/cccccc/909090?text=R%C3%A9sultat+9" alt="Témoignage résultat 9" class="w-full h-full object-cover rounded-lg shadow-lg">
@@ -710,7 +638,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </div>
-                        <!-- Image 10 (Placeholder) -->
                         <div class="min-w-full">
                             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
                                 <img src="https://fakeimg.pl/1200x600/cccccc/909090?text=R%C3%A9sultat+10" alt="Témoignage résultat 10" class="w-full h-full object-cover rounded-lg shadow-lg">
@@ -721,25 +648,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>
                     </div>
-
-                    <!-- Navigation buttons -->
                     <button id="prevBtn" class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white rounded-full p-2 sm:p-3 backdrop-blur-sm transition-all z-10">
                         <i class="fa fa-chevron-left text-base sm:text-xl"></i>
                     </button>
                     <button id="nextBtn" class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white rounded-full p-2 sm:p-3 backdrop-blur-sm transition-all z-10">
                         <i class="fa fa-chevron-right text-base sm:text-xl"></i>
                     </button>
-
-                    <!-- Indicators -->
                     <div id="carousel-indicators" class="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2 z-10">
-                        <!-- Indicators will be generated by JavaScript -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- CTA Section -->
     <section id="cta" class="py-16 md:py-24 animated-gradient-bg text-white scroll-animation">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-5xl font-heading font-black mb-6">Prête à Prendre Ton Avenir Financier en Main ?</h2>
@@ -749,22 +669,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="text-7xl md:text-8xl font-extrabold mb-3">597€</p>
                 <p class="text-xl mb-6">(Payable en 3 fois <span class="font-bold">199€</span> sans frais)</p>
                 <p class="text-2xl font-semibold text-yellow-300 mb-10">Rentabilisé en UNE SEULE vente ! 🔥</p>
-                
                  <p class="mt-6 text-gray-200 text-sm">Formation + Droit de Revente + Tous les Bonus Inclus</p>
             </div>
-            <a href="Paiement DSA" class="open-popup-trigger cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-5 px-12 rounded-full text-2xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation mt-8" data-page-id="6817d711d8bcb3ca43b66669" id="page-link">
+            <a href="Paiement DSA" class="open-popup-trigger cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-5 px-12 rounded-full text-2xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation mt-1" data-page-id="6817d711d8bcb3ca43b66669" id="page-link">
                 Oui, Je Veux Accéder à la DSA Maintenant ! <i class="fas fa-lock ml-2"></i>
             </a>
             <p class="mt-8 text-lg font-semibold">⚠️ Attention : Cette offre et ce business sont en pleine explosion. Ne manque pas le train de l'opportunité la plus simple et rentable de 2025 ! Les places avec accompagnement personnalisé sont limitées.</p>
         </div>
     </section>
-
-    <!-- FAQ Section -->
     <section id="faq" class="py-16 md:py-24 bg-gray-50 scroll-animation">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-heading font-bold mb-12 text-center section-title">Questions Fréquentes</h2>
             <div class="max-w-3xl mx-auto accordion">
-                <!-- FAQ 1 -->
                 <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center hover:bg-gray-100 transition duration-300">
                         <span>Ai-je besoin de compétences techniques ?</span>
@@ -774,7 +690,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         Absolument pas ! La formation est conçue pour les débutantes. Tout est expliqué étape par étape, de manière simple et visuelle. Le système est "copier-coller". Si tu sais utiliser les réseaux sociaux basiques, tu peux réussir.
                     </div>
                 </div>
-                <!-- FAQ 2 -->
                 <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center hover:bg-gray-100 transition duration-300">
                         <span>Dois-je montrer mon visage ou avoir beaucoup d'abonnés ?</span>
@@ -784,7 +699,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         Non ! La formation inclut des stratégies "faceless" (anonymes) très efficaces. Tu peux construire ton business discrètement. Tu n'as pas besoin d'une audience existante, la formation t'apprend justement à la construire rapidement.
                     </div>
                 </div>
-                <!-- FAQ 3 -->
                 <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center hover:bg-gray-100 transition duration-300">
                         <span>Combien de temps faut-il consacrer par jour ?</span>
@@ -794,8 +708,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         Une fois le système mis en place (quelques heures au total), tu peux y consacrer seulement 1 à 2 heures par jour, voire moins grâce à l'automatisation et à la programmation de contenu. C'est flexible et s'adapte à ton emploi du temps.
                     </div>
                 </div>
-                 <!-- FAQ 4 -->
-                <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
+                 <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center hover:bg-gray-100 transition duration-300">
                         <span>Est-ce que c'est légal et éthique ?</span>
                         <i class="fas fa-chevron-down accordion-icon"></i>
@@ -804,8 +717,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         Oui, totalement. Le concept de Master Resell Rights (MRR) est légal. Tu achètes une formation de haute qualité avec le droit de la revendre. Tu apportes une vraie valeur (la formation elle-même) à tes clients. La formation aborde également comment déclarer son activité.
                     </div>
                 </div>
-                 <!-- FAQ 5 -->
-                <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
+                 <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center hover:bg-gray-100 transition duration-300">
                         <span>Quand verrai-je les premiers résultats ?</span>
                         <i class="fas fa-chevron-down accordion-icon"></i>
@@ -814,7 +726,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         Cela dépend de ton implication, mais beaucoup de nos membres réalisent leur première vente en quelques jours seulement après avoir mis en place le système, parfois même en 24h ! La formation est conçue pour des résultats rapides.
                     </div>
                 </div>
-                 <!-- FAQ 6 -->
                  <div class="border rounded-lg overflow-hidden mb-4 bg-white shadow-md">
                     <button class="accordion-button w-full text-left p-5 font-semibold text-lg flex justify-between items-center hover:bg-gray-100 transition duration-300">
                         <span>Y a-t-il des coûts cachés ou des abonnements ?</span>
@@ -827,32 +738,33 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-8">
         <div class="container mx-auto px-6 text-center">
             <p class="mb-4">© 2025 MYMY BUSINESS - DSA - Tous droits réservés.</p>
-            <p class="text-sm">Ce site n'appartient pas à Facebook et n'est pas affilié à Facebook Inc. Le contenu de ce site web n'a pas été vérifié par Facebook. Facebook est une marque déposée de Facebook, Inc.</p>
-            <div class="mt-4 space-x-4">
+            <p class="text-xs">Ce site n'appartient pas à Facebook et n'est pas affilié à Facebook Inc. Le contenu de ce site web n'a pas été vérifié par Facebook. Facebook est une marque déposée de Facebook, Inc.</p>
+            <div class="mt-4 space-x-2 text-xs">
                 <a href="#" class="hover:text-white">Mentions Légales</a>
                 <a href="#" class="hover:text-white">Politique de Confidentialité</a>
                 <a href="#" class="hover:text-white">Contact</a>
             </div>
         </div>
     </footer>
-
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
+            // Mobile menu toggle and auto-close on scroll
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
                 });
+                window.addEventListener('scroll', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
             }
-
             // Shrink header on scroll
             const header = document.getElementById('site-header');
             if (header) {
@@ -867,35 +779,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             }
-
             // Popup Logic
             const popupOverlay = document.getElementById('dsa-popup-overlay');
             const closePopupButton = document.getElementById('close-dsa-popup');
             const openPopupButtons = document.querySelectorAll('.open-popup-trigger');
-
             function openPopup(e) {
                 e.preventDefault();
                 if (popupOverlay) {
                     popupOverlay.style.display = 'flex';
-                    document.body.classList.add('popup-open'); 
+                    document.body.classList.add('popup-open');
                 }
             }
-
             function closePopup() {
                 if (popupOverlay) {
                     popupOverlay.style.display = 'none';
                     document.body.classList.remove('popup-open');
                 }
             }
-
             openPopupButtons.forEach(button => {
                 button.addEventListener('click', openPopup);
             });
-
             if (closePopupButton) {
                 closePopupButton.addEventListener('click', closePopup);
             }
-
             if (popupOverlay) {
                 popupOverlay.addEventListener('click', function(e) {
                     if (e.target === popupOverlay) {
@@ -903,30 +809,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             }
-
             document.addEventListener('keydown', function(e) {
                 if (e.key === "Escape" && popupOverlay && popupOverlay.style.display === 'flex') {
                     closePopup();
                 }
             });
-
-
             // Accordion Logic
             const accordionButtons = document.querySelectorAll('.accordion-button');
             accordionButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const content = button.nextElementSibling;
                     const isActive = button.classList.contains('active');
-
                     button.classList.toggle('active');
-                    if (!isActive) { // If it wasn't active, it is now, so open it
+                    if (!isActive) {
                         content.style.maxHeight = content.scrollHeight + "px";
-                    } else { // If it was active, it is not anymore, so close it
+                    } else {
                         content.style.maxHeight = null;
                     }
                 });
             });
-
             // Scroll Animation Logic
             const scrollElements = document.querySelectorAll('.scroll-animation');
             const elementInView = (el, dividend = 1) => {
@@ -940,35 +841,31 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             const handleScrollAnimation = () => {
                 scrollElements.forEach((el) => {
-                    if (elementInView(el, 1.15)) { 
+                    if (elementInView(el, 1.15)) {
                         displayScrollElement(el);
                     }
                 });
             };
             handleScrollAnimation();
             window.addEventListener('scroll', handleScrollAnimation);
-
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     if (this.classList.contains('open-popup-trigger')) {
-                       return; 
+                       return;
                     }
                     const targetId = this.getAttribute('href');
                     if (targetId && targetId.length > 1 && targetId.startsWith('#')) {
                         const targetElement = document.querySelector(targetId);
                         if (targetElement) {
                             e.preventDefault();
-                            // Calculate offset for fixed header if necessary
                             const headerOffset = document.getElementById('site-header') ? document.getElementById('site-header').offsetHeight : 0;
                             const elementPosition = targetElement.getBoundingClientRect().top;
                             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
                             window.scrollTo({
                                  top: offsetPosition,
                                  behavior: "smooth"
                             });
-                            
                             if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                                 mobileMenu.classList.add('hidden');
                             }
@@ -976,11 +873,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             });
-
             // Carousel Logic in Testimonials
             const carousel = document.getElementById('carousel');
             if (carousel) {
-                const slides = carousel.querySelectorAll(':scope > div'); // Direct children divs are slides
+                const slides = carousel.querySelectorAll(':scope > div');
                 const prevBtn = document.getElementById('prevBtn');
                 const nextBtn = document.getElementById('nextBtn');
                 const indicatorsContainer = document.getElementById('carousel-indicators');
@@ -989,10 +885,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 let touchStartX = 0;
                 let touchEndX = 0;
                 let autoPlayInterval;
-
                 function createIndicators() {
                     if (!indicatorsContainer) return;
-                    indicatorsContainer.innerHTML = ''; // Clear existing static indicators
+                    indicatorsContainer.innerHTML = '';
                     for (let i = 0; i < totalSlides; i++) {
                         const indicator = document.createElement('div');
                         indicator.classList.add('indicator', 'w-2', 'h-2', 'sm:w-3', 'sm:h-3', 'rounded-full', 'cursor-pointer', 'opacity-70', 'hover:opacity-100', 'transition-opacity');
@@ -1009,11 +904,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         indicatorsContainer.appendChild(indicator);
                     }
                 }
-                
                 function updateCarousel() {
                     if (totalSlides === 0) return;
                     carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-                    
                     const currentIndicators = indicatorsContainer ? indicatorsContainer.querySelectorAll('.indicator') : [];
                     currentIndicators.forEach((indicator, index) => {
                         if (index === currentIndex) {
@@ -1025,68 +918,55 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     });
                 }
-                
                 function goToSlide(index) {
                     if (totalSlides === 0) return;
                     currentIndex = index;
                     updateCarousel();
                     resetAutoPlay();
                 }
-
                 function goToNext() {
                     if (totalSlides === 0) return;
                     currentIndex = (currentIndex + 1) % totalSlides;
                     updateCarousel();
                 }
-                
                 function goToPrev() {
                     if (totalSlides === 0) return;
                     currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
                     updateCarousel();
                 }
-
                 function startAutoPlay() {
                     if (totalSlides > 0) {
                        autoPlayInterval = setInterval(goToNext, 5000);
                     }
                 }
-
                 function stopAutoPlay() {
                     clearInterval(autoPlayInterval);
                 }
-
                 function resetAutoPlay() {
                     stopAutoPlay();
                     startAutoPlay();
                 }
-                
                 if (nextBtn) nextBtn.addEventListener('click', () => { goToNext(); resetAutoPlay(); });
                 if (prevBtn) prevBtn.addEventListener('click', () => { goToPrev(); resetAutoPlay(); });
-                
                 carousel.addEventListener('touchstart', (e) => {
                     touchStartX = e.changedTouches[0].screenX;
                     stopAutoPlay();
                 });
-                
                 carousel.addEventListener('touchend', (e) => {
                     touchEndX = e.changedTouches[0].screenX;
                     handleSwipe();
                     startAutoPlay();
                 });
-                
                 function handleSwipe() {
-                    const swipeThreshold = 50; // Minimum distance for a swipe
+                    const swipeThreshold = 50;
                     if (touchEndX < touchStartX - swipeThreshold) {
                         goToNext();
                     } else if (touchEndX > touchStartX + swipeThreshold) {
                         goToPrev();
                     }
                 }
-                
                 carousel.addEventListener('mouseenter', stopAutoPlay);
                 carousel.addEventListener('mouseleave', startAutoPlay);
-                
-                // Initialize Carousel
                 if (totalSlides > 0) {
                     createIndicators();
                     updateCarousel();
