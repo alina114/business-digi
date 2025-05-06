@@ -30,32 +30,41 @@
             border: 1px solid rgba(255,255,255,0.18);
             box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
         }
+        /* Responsive iframe */
+        .responsive-iframe {
+            width: 95vw;
+            max-width: 100%;
+            height: 80vh;
+            min-height: 600px;
+            border: none;
+            border-radius: 12px;
+            background: white;
+            display: block;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .responsive-iframe {
+                width: 100%;
+                height: 787px;
+            }
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name="description" content="Ta Nouvelle Vie Commence Ici !
-Complète le formulaire ci-dessous pour accéder immédiatement à la formation et à tous tes bonus.">
+    <meta name="description" content="Ta Nouvelle Vie Commence Ici ! Complète le formulaire ci-dessous pour accéder immédiatement à la formation et à tous tes bonus.">
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen">
 
     <div class="glassmorphism rounded-3xl p-4 md:p-12 shadow-xl max-w-5xl w-full mx-auto mt-12">
         <h1 class="font-heading text-3xl md:text-4xl font-bold text-center mb-6 text-white">
-Ta Nouvelle Vie Commence Ici !
+            Ta Nouvelle Vie Commence Ici !
         </h1>
         <p class="text-center text-lg text-white mb-8">
             Complète le formulaire ci-dessous pour accéder immédiatement à la formation et à tous tes bonus.
         </p>
-        <div style="width:100%; min-height:787px;">
-            <iframe src="https://api.leadconnectorhq.com/widget/form/wwvaDazTCTqBhKPR5iCZ" style="width:100%;height:787px;border:none;border-radius:12px;background:white;" id="inline-wwvaDazTCTqBhKPR5iCZ" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Formulaire d'achat DSA" data-height="787" data-layout-iframe-id="inline-wwvaDazTCTqBhKPR5iCZ" data-form-id="wwvaDazTCTqBhKPR5iCZ" title="Formulaire d'achat DSA"></iframe>
+        <div>
+            <iframe src="https://api.leadconnectorhq.com/widget/form/wwvaDazTCTqBhKPR5iCZ" class="responsive-iframe" id="inline-wwvaDazTCTqBhKPR5iCZ" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Formulaire d'achat DSA" data-height="787" data-layout-iframe-id="inline-wwvaDazTCTqBhKPR5iCZ" data-form-id="wwvaDazTCTqBhKPR5iCZ" title="Formulaire d'achat DSA"></iframe>
         </div>
     </div>
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-<script><div style="display:flex;justify-content:center;align-items:center;min-height:100vh;">
-  <iframe
-    src="https://api.leadconnectorhq.com/widget/form/wwvaDazTCTqBhKPR5iCZ"
-    style="width:95vw; height:95vh; border:none; border-radius:3px"
-    id="inline-wwvaDazTCTqBhKPR5iCZ"
-    title="Formulaire d'achat DSA"
-  ></iframe>
-</div>
-</script></body>
+</body>
 </html>
