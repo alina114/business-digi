@@ -10,7 +10,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const btn = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  
+  btn.addEventListener('click', function() {
+    menu.classList.toggle('hidden');
+  });
+});
+</script>
+
+      body {
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden; /* Empêche le défilement horizontal */
         }
@@ -78,7 +89,7 @@
             transition: max-height 0.5s ease-out;
         }
         .accordion-button.active + .accordion-content {
-            max-height: 10000px; /* Adjust as needed */
+            max-height: 10000px; /* Adjust as needed, or use JS to set scrollHeight */
             transition: max-height 1s ease-in;
         }
         .accordion-button .accordion-icon {
@@ -103,65 +114,7 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         }
-        /* Style pour le popup */
-        #dsa-popup-overlay {
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.8); /* Slightly darker overlay */
-            display: none; /* Hidden by default */
-            align-items: center;
-            justify-content: center;
-            padding: 1rem; /* Add some padding for smaller screens */
-            box-sizing: border-box;
-        }
-        #dsa-popup-content {
-            background: white;
-            border-radius: 12px; /* Slightly smaller border radius */
-            width: 95%; /* Use percentage for responsiveness */
-            height: 95%; /* Use percentage for responsiveness */
-            max-width: 1200px; /* Optional: Limit max width on very large screens */
-            padding: 0;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden; /* Prevent container scroll */
-        }
-        #close-dsa-popup {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.5);
-            border: none;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            font-size: 1.5rem;
-            line-height: 35px;
-            text-align: center;
-            color: white;
-            cursor: pointer;
-            z-index: 10;
-            transition: background 0.3s ease;
-        }
-        #close-dsa-popup:hover {
-            background: rgba(0,0,0,0.8);
-        }
-        #dsa-popup-iframe {
-            width: 100%;
-            height: 100%; /* Fill the container */
-            border: none;
-            border-radius: 0 0 12px 12px; /* Match container radius at bottom */
-            display: block;
-            flex-grow: 1; /* Allow iframe to take available space */
-        }
-        /* Ensure body doesn't scroll when popup is open */
-        body.popup-open {
-            overflow: hidden;
+        
         }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -170,23 +123,16 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Pop-up -->
-    <div id="dsa-popup-overlay">
-      <div id="dsa-popup-content">
-        <button id="close-dsa-popup" aria-label="Fermer">×</button>
-        <iframe id="dsa-popup-iframe" src="https://api.leadconnectorhq.com/widget/form/wwvaDazTCTqBhKPR5iCZ" data-layout="{'id':'POPUP'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Formulaire d'achat DSA" data-height="auto" data-layout-iframe-id="popup-wwvaDazTCTqBhKPR5iCZ" data-form-id="wwvaDazTCTqBhKPR5iCZ" title="Formulaire d'achat DSA">
-        </iframe>
-      </div>
-    </div>
-
-    <!-- Hero Section -->
+        <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden animated-gradient-bg px-4 py-20">
         <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-all duration-300" id="site-header">
             <div class="container mx-auto px-4">
                 <div class="flex items-center justify-between h-20">
                     <!-- Logo -->
                     <div class="flex-shrink-0">
-                        <a href="#" class="flex items-center"></a>
+                        <a href="#" class="flex items-center">
+                            <!-- Vous pouvez ajouter votre logo ici, ex: <img src="logo.png" alt="Logo"> -->
+                        </a>
                     </div>
 
                     <!-- Desktop Navigation -->
@@ -206,31 +152,36 @@
                         <a href="#bonus" class="text-gray-800 hover:text-blue-600 font-medium transition-colors duration-200 relative group">
                             Tes bonus<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                         </a>
+
                     </nav>
 
                     <!-- CTA Buttons -->
                     <div class="hidden md:flex items-center space-x-4">
-                        <a href="Paiement DSA" class="open-popup-trigger px-14 py-3 bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200 shadow-md hover:shadow-lg" data-page-id="6817d711d8bcb3ca43b66669" id="page-link">JE ME LANCE MAINTENANT </a>
+                        <a href="#cta" class="px-14 py-3 bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200 shadow-md hover:shadow-lg">
+  JE ME LANCE MAINTENANT
+</a>
                     </div>
 
-                    <!-- Mobile menu button -->
-                    <div class="md:hidden flex items-center">
-                        <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu" id="mobile-menu-button">
-                            <i class="fa fa-bars text-xl"></i>
-                        </button>
-                    </div>
+                   <!-- Mobile menu button -->
+<div class="md:hidden flex items-center">
+    <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu" id="mobile-menu-button">
+        <i class="fa fa-bars text-xl"></i>
+    </button>
+    <!-- Bouton CTA mobile toujours visible -->
+    <a href="#cta" class="open-popup-trigger ml-2 px-4 py-2 bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200 shadow-md hover:shadow-lg md:hidden" data-page-id="6817d711d8bcb3ca43b66669">
+        JE ME LANCE MAINTENANT
+    </a>
+</div>
                 </div>
 
                 <!-- Mobile Navigation -->
                 <div class="md:hidden hidden" id="mobile-menu">
-                    <div class="px-2 pt-2 pb-4 space-y-1 bg-white rounded-lg shadow-lg mt-2">
+                    <div class="px-2 pt-1 pb-1 space-y-1 bg-white rounded-lg shadow-lg">
                         <a href="#hero" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Présentation</a>
                         <a href="#benefices" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Tes bénéfices</a>
                         <a href="#programme" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Ton programme</a>
                         <a href="#bonus" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">Tes bonus</a>
-                        <div class="pt-4 flex flex-col space-y-2">
-                             <a href="#" class="open-popup-trigger px-3 py-2 text-center bg-gradient-to-r from-pink-600 to-yellow-600 text-white font-medium rounded-md hover:from-yellow-700 hover:to-purple-600 transition-colors duration-200">JE ME LANCE MAINTENANT</a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -241,13 +192,13 @@
                 <span class="block mb-2">Fatiguée de Lutter Financièrement ?</span>
                 <span class="gradient-text">Découvre la Révolution Digitale Qui Change des Vies.</span>
             </h1>
-            <p class="text-lg md:text-2xl mb-8 max-w-2xl mx-auto font-light fade-in" style="animation-delay: 0.4s;">
+            <p class="text-lg md:text-2xl mb-1 max-w-2xl mx-auto font-light fade-in" style="animation-delay: 0.4s;">
                 Lance ta machine à cash avec notre système clé en main. Apprends, Revends, Encaisse 100% des profits. Sans créer de produit, sans stress, sans même montrer ton visage.
             </p>
-            <a href="#" class="open-popup-trigger cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation fade-in" style="animation-delay: 0.6s;">
+            <a href="#" class="open-popup-trigger cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation fade-in" style="animation-delay: 0.6s;" data-page-id="6817d711d8bcb3ca43b66669">
                 Accéder à la Formation <i class="fas fa-arrow-right ml-2"></i>
             </a>
-            <p class="mt-8 text-sm opacity-80 fade-in" style="animation-delay: 0.8s;">Rejoins des milliers de femmes qui ont déjà transformé leur avenir financier.</p>
+            <p class="mt-1 text-sm opacity-80 fade-in" style="animation-delay: 0.8s;">Rejoins des milliers de femmes qui ont déjà transformé leur avenir financier.</p>
         </div>
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
             <i class="fas fa-chevron-down text-white text-3xl opacity-70"></i>
@@ -269,8 +220,8 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                    <a href="Paiement DSA" class="open-popup-trigger bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center pulse cta-button" data-page-id="6817d711d8bcb3ca43b66669" id="page-link">
-                        <i class="fas fa-rocket mr-2"></i> Je Démarre Mon Business Maintenant
+                    <a href="#cta" class="open-popup-trigger bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center pulse cta-button">
+                        Je Démarre Mon Business Maintenant
                     </a>
                     <a href="#temoignages" class="bg-white border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center">
                         <i class="fas fa-play-circle mr-2"></i> Voir les Témoignages
@@ -278,19 +229,19 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center gap-1 sm:gap-20">
-  <div class="flex -space-x-2 mb-2 sm:mb-0">
-    <img src="https://images.unsplash.com/photo-1517677129300-07b130802f46?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMDN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMDh8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white">
-    <img src="https://images.unsplash.com/photo-1534278221230-84061d5f99da?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMTN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMzl8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white">
-    <img src="https://images.unsplash.com/photo-1522938974444-f12497b69347?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMzJ8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyODN8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white">
-    <img src="https://images.unsplash.com/photo-1533810019453-7351dbd31aee?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxODl8fHdvbWFufGVufDB8MHx8fDE3NDYxMTczMTd8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white">
-    <img src="https://images.unsplash.com/photo-1630939687530-241d630735df?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHw4M3x8d29tYW4lMjBvZmZpY2V8ZW58MHwwfHx8MTc0NjU0OTM2N3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white"><img src="https://images.unsplash.com/photo-1516554344860-089511650386?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMjN8fHdvbWFuJTIwb2ZmaWNlfGVufDB8MHx8fDE3NDY1NDk0MTB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white"><div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-pink-500 text-white flex items-center justify-center text-xs font-bold border-2 border-white">
-      +3194
-    </div>
-  </div>
-  <p class="text-gray-600 text-center sm:text-left text-sm sm:text-base">
-    <span class="font-bold text-pink-600">+3200 personnes</span> génèrent des revenus confortablement, pourquoi pas toi ?
-  </p>
-</div>
+                  <div class="flex -space-x-2 mb-2 sm:mb-0">
+                    <img src="https://images.unsplash.com/photo-1517677129300-07b130802f46?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMDN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMDh8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white">
+                    <img src="https://images.unsplash.com/photo-1534278221230-84061d5f99da?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMTN8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyMzl8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white">
+                    <img src="https://images.unsplash.com/photo-1522938974444-f12497b69347?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMzJ8fHdvbWFufGVufDB8MHx8fDE3NDYxMTcyODN8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white">
+                    <img src="https://images.unsplash.com/photo-1533810019453-7351dbd31aee?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxODl8fHdvbWFufGVufDB8MHx8fDE3NDYxMTczMTd8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white">
+                    <img src="https://images.unsplash.com/photo-1630939687530-241d630735df?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHw4M3x8d29tYW4lMjBvZmZpY2V8ZW58MHwwfHx8MTc0NjU0OTM2N3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white"><img src="https://images.unsplash.com/photo-1516554344860-089511650386?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxMjN8fHdvbWFuJTIwb2ZmaWNlfGVufDB8MHx8fDE3NDY1NDk0MTB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Utilisateur" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white"><div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-pink-500 text-white flex items-center justify-center text-xs font-bold border-2 border-white">
+                      +3194
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-center sm:text-left text-sm sm:text-base">
+                    <span class="font-bold text-pink-600">+3200 personnes</span> génèrent des revenus confortablement, pourquoi pas toi ?
+                  </p>
+                </div>
             </div>
 
             <div class="w-full lg:w-1/2 slide-in-right" style="animation-delay: 0.6s;">
@@ -300,7 +251,6 @@
                     <div class="relative bg-white shadow-xl rounded-2xl p-4 hero-animation">
                         <div class="aspect-w-16 aspect-h-9 mb-4">
                             <div class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded-xl overflow-hidden">
-                                <!-- Remplacé l'image par la vidéo si elle existe -->
                                 <video src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/videos/ba526085f772b5ef.mp4" controls="" class="absolute top-0 left-0 w-full h-full object-cover" poster="https://fakeimg.pl/800x450/FF5E94/FFFFFF?text=Chargement...">Votre navigateur ne supporte pas la vidéo.</video>
                             </div>
                         </div>
@@ -312,7 +262,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-bold text-lg">Najet</h3>
-                                    <p class="text-gray-600 text-sm">Fondatrice Mymy Business</p>
+                                    <p class="text-gray-600 text-sm">Fondatrice de Mymy Business</p>
                                 </div>
                             </div>
                             <p class="text-gray-700 mb-4">
@@ -620,19 +570,19 @@
                     <p class="opacity-90">Échange, apprends, applique et chiffre dans une communauté soudée et motivante.</p>
                 </div>
             </div>
-             <div class="max-w-3xl mx-auto bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl p-8 md:p-12 text-white shine-effect">
+             <div class="max-w-3xl mx-auto bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl p-8 md:p-12 text-white shine-effect mt-12">
                     <h3 class="text-2xl md:text-3xl font-bold mb-6">
                         💥EN PLUS DE TOUS CES BONUS, JE T'OFFRE UN COACHING GRATUIT POUR TE SOUTENIR DANS LA MISE EN PLACE DE TON BUSINESS EN LIGNE ! 🚀
                     </h3>
                     <p class="text-xl mb-8">
                         Ces bonus ont une valeur de plus de 3000€, mais ils sont inclus GRATUITEMENT dans ton adhésion à la Digital Success Academy.
                     </p>
-                    <a href="Paiement DSA" class="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all inline-block cta-button" data-page-id="6817d711d8bcb3ca43b66669" id="page-link">
+                    <a href="" cta"="" class="open-popup-trigger bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all inline-block cta-button" data-page-id="6817d711d8bcb3ca43b66669">
                         <i class="fas fa-rocket mr-2"></i> Je veux accéder à tous ces bonus
                     </a>
                 </div>
         </div><div class="mt-16 text-center">
-                <p class="mt-12 text-2xl font-bold">💥 TOUT EST PRÊT POUR TOI, PAS D'EXCUSE. PRENDS TA PLACE MAINTENANT ! 🚀</p>
+                <p class="mt-12 text-2xl font-bold text-white">💥 TOUT EST PRÊT POUR TOI, PAS D'EXCUSE. PRENDS TA PLACE MAINTENANT ! 🚀</p>
             </div>
     </section>
 
@@ -666,219 +616,126 @@
             </div>
             <!-- Placeholder for more testimonials or results screenshots -->
              <div class="mt-12 text-center">
-    <h3 class="text-2xl font-bold mb-6 font-heading">Des Résultats Concrets et Rapides !</h3>
-    <div class="relative w-full max-w-7xl mx-auto overflow-hidden px-4 sm:px-6">
-        <!-- Carousel container -->
-        <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
-            <!-- Image 1 -->
-            <div class="min-w-full">
-                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
-                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/c5ba1ed6e1af3f60.jpeg" alt="Image 1" class="w-full h-full object-cover rounded-lg shadow-lg">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
-                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 1</h3>
-                        <p class="text-gray-200 text-sm sm:text-base">Beautiful landscape view</p>
+                <h3 class="text-2xl font-bold mb-6 font-heading">Des Résultats Concrets et Rapides !</h3>
+                <div class="relative w-full max-w-7xl mx-auto overflow-hidden px-4 sm:px-6">
+                    <!-- Carousel container -->
+                    <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Image 1 -->
+                        <div class="min-w-full">
+                            <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                                <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/c5ba1ed6e1af3f60.jpeg" alt="Témoignage résultat 1" class="w-full h-full object-cover rounded-lg shadow-lg">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                                    <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Résultat Client 1</h3>
+                                    <p class="text-gray-200 text-sm sm:text-base">Des chiffres qui parlent.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Image 2 -->
+                        <div class="min-w-full">
+                            <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                                <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/941307db51102d6d.jpeg" alt="Témoignage résultat 2" class="w-full h-full object-cover rounded-lg shadow-lg">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                                    <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Résultat Client 2</h3>
+                                    <p class="text-gray-200 text-sm sm:text-base">Succès après succès.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Image 3 -->
+                        <div class="min-w-full">
+                            <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                                <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/3d4ebb67a8fb0f02.jpeg" alt="Témoignage résultat 3" class="w-full h-full object-cover rounded-lg shadow-lg">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                                    <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Résultat Client 3</h3>
+                                    <p class="text-gray-200 text-sm sm:text-base">La preuve par l'image.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Image 4 -->
+                        <div class="min-w-full">
+                            <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                                <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/1e1a50306a66ca29.jpeg" alt="Témoignage résultat 4" class="w-full h-full object-cover rounded-lg shadow-lg">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                                    <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Résultat Client 4</h3>
+                                    <p class="text-gray-200 text-sm sm:text-base">Des gains concrets.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Image 5 -->
+                        <div class="min-w-full">
+                            <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                                <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/f640619dd35a98f3.jpeg" alt="Témoignage résultat 5" class="w-full h-full object-cover rounded-lg shadow-lg">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                                    <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Résultat Client 5</h3>
+                                    <p class="text-gray-200 text-sm sm:text-base">Transformation financière.</p>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Image 6 (Placeholder) -->
+                        <div class="min-w-full">
+                            <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                                <img src="https://fakeimg.pl/1200x600/cccccc/909090?text=R%C3%A9sultat+6" alt="Témoignage résultat 6" class="w-full h-full object-cover rounded-lg shadow-lg">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                                    <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Résultat Client 6</h3>
+                                    <p class="text-gray-200 text-sm sm:text-base">Encore un succès !</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Image 7 (Placeholder) -->
+                        <div class="min-w-full">
+                            <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                                <img src="https://fakeimg.pl/1200x600/cccccc/909090?text=R%C3%A9sultat+7" alt="Témoignage résultat 7" class="w-full h-full object-cover rounded-lg shadow-lg">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                                    <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Résultat Client 7</h3>
+                                    <p class="text-gray-200 text-sm sm:text-base">Ça fonctionne !</p>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Image 8 (Duplicate of 5, kept for consistency with original count) -->
+                        <div class="min-w-full">
+                            <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                                <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/f640619dd35a98f3.jpeg" alt="Témoignage résultat 8" class="w-full h-full object-cover rounded-lg shadow-lg">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                                    <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Résultat Client 8</h3>
+                                    <p class="text-gray-200 text-sm sm:text-base">Objectifs atteints.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Image 9 (Placeholder) -->
+                        <div class="min-w-full">
+                            <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                                <img src="https://fakeimg.pl/1200x600/cccccc/909090?text=R%C3%A9sultat+9" alt="Témoignage résultat 9" class="w-full h-full object-cover rounded-lg shadow-lg">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                                    <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Résultat Client 9</h3>
+                                    <p class="text-gray-200 text-sm sm:text-base">Des revenus en hausse.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Image 10 (Placeholder) -->
+                        <div class="min-w-full">
+                            <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                                <img src="https://fakeimg.pl/1200x600/cccccc/909090?text=R%C3%A9sultat+10" alt="Témoignage résultat 10" class="w-full h-full object-cover rounded-lg shadow-lg">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
+                                    <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Résultat Client 10</h3>
+                                    <p class="text-gray-200 text-sm sm:text-base">Une nouvelle vie.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- Image 2 -->
-            <div class="min-w-full">
-                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
-                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/941307db51102d6d.jpeg" alt="Image 2" class="w-full h-full object-cover rounded-lg shadow-lg">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
-                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 2</h3>
-                        <p class="text-gray-200 text-sm sm:text-base">Amazing architecture</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Image 3 -->
-            <div class="min-w-full">
-                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
-                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/3d4ebb67a8fb0f02.jpeg" alt="Image 3" class="w-full h-full object-cover rounded-lg shadow-lg">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
-                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 3</h3>
-                        <p class="text-gray-200 text-sm sm:text-base">Urban exploration</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Image 4 -->
-            <div class="min-w-full">
-                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
-                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/1e1a50306a66ca29.jpeg" alt="Image 4" class="w-full h-full object-cover rounded-lg shadow-lg">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
-                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 4</h3>
-                        <p class="text-gray-200 text-sm sm:text-base">Nature's beauty</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Image 5 -->
-            <div class="min-w-full">
-                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
-                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/f640619dd35a98f3.jpeg" alt="Image 5" class="w-full h-full object-cover rounded-lg shadow-lg">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
-                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 5</h3>
-                        <p class="text-gray-200 text-sm sm:text-base">Mountain peaks</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Image 6 -->
-            <div class="min-w-full">
-                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
-                    <img src="https://fakeimg.pl/1200x600" alt="Image 6" class="w-full h-full object-cover rounded-lg shadow-lg">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
-                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 6</h3>
-                        <p class="text-gray-200 text-sm sm:text-base">Ocean waves</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Image 7 -->
-            <div class="min-w-full">
-                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
-                    <img src="https://fakeimg.pl/1200x600" alt="Image 7" class="w-full h-full object-cover rounded-lg shadow-lg">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
-                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 7</h3>
-                        <p class="text-gray-200 text-sm sm:text-base">Desert landscapes</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Image 8 -->
-            <div class="min-w-full">
-                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
-                    <img src="https://d1olmvoet3matb.cloudfront.net/EvchaseYz9/images/f640619dd35a98f3.jpeg" alt="Image 8" class="w-full h-full object-cover rounded-lg shadow-lg">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
-                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 8</h3>
-                        <p class="text-gray-200 text-sm sm:text-base">City skylines</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Image 9 -->
-            <div class="min-w-full">
-                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
-                    <img src="https://fakeimg.pl/1200x600" alt="Image 9" class="w-full h-full object-cover rounded-lg shadow-lg">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
-                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 9</h3>
-                        <p class="text-gray-200 text-sm sm:text-base">Forest adventures</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Image 10 -->
-            <div class="min-w-full">
-                <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
-                    <img src="https://fakeimg.pl/1200x600" alt="Image 10" class="w-full h-full object-cover rounded-lg shadow-lg">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3 sm:p-4 md:p-6">
-                        <h3 class="text-white text-lg sm:text-xl md:text-2xl font-bold">Image 10</h3>
-                        <p class="text-gray-200 text-sm sm:text-base">Winter wonderland</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Navigation buttons -->
-        <button id="prevBtn" class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white rounded-full p-2 sm:p-3 backdrop-blur-sm transition-all z-10">
-            <i class="fa fa-chevron-left text-base sm:text-xl"></i>
-        </button>
-        <button id="nextBtn" class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white rounded-full p-2 sm:p-3 backdrop-blur-sm transition-all z-10">
-            <i class="fa fa-chevron-right text-base sm:text-xl"></i>
-        </button>
+                    <!-- Navigation buttons -->
+                    <button id="prevBtn" class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white rounded-full p-2 sm:p-3 backdrop-blur-sm transition-all z-10">
+                        <i class="fa fa-chevron-left text-base sm:text-xl"></i>
+                    </button>
+                    <button id="nextBtn" class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white rounded-full p-2 sm:p-3 backdrop-blur-sm transition-all z-10">
+                        <i class="fa fa-chevron-right text-base sm:text-xl"></i>
+                    </button>
 
-        <!-- Indicators -->
-        <div class="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2 z-10">
-            <div class="indicator active bg-white w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="0"></div>
-            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="1"></div>
-            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="2"></div>
-            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="3"></div>
-            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="4"></div>
-            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="5"></div>
-            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="6"></div>
-            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="7"></div>
-            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="8"></div>
-            <div class="indicator bg-white/50 w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-index="9"></div>
-        </div>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const carousel = document.getElementById('carousel');
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
-                const indicators = document.querySelectorAll('.indicator');
-                const totalSlides = 10;
-                let currentIndex = 0;
-                let touchStartX = 0;
-                let touchEndX = 0;
-                
-                // Functions
-                function updateCarousel() {
-                    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-                    
-                    // Update indicators
-                    indicators.forEach((indicator, index) => {
-                        if (index === currentIndex) {
-                            indicator.classList.add('bg-white');
-                            indicator.classList.remove('bg-white/50');
-                        } else {
-                            indicator.classList.remove('bg-white');
-                            indicator.classList.add('bg-white/50');
-                        }
-                    });
-                }
-                
-                function goToNext() {
-                    currentIndex = (currentIndex + 1) % totalSlides;
-                    updateCarousel();
-                }
-                
-                function goToPrev() {
-                    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                    updateCarousel();
-                }
-                
-                // Event listeners
-                nextBtn.addEventListener('click', goToNext);
-                prevBtn.addEventListener('click', goToPrev);
-                
-                indicators.forEach((indicator, index) => {
-                    indicator.addEventListener('click', () => {
-                        currentIndex = index;
-                        updateCarousel();
-                    });
-                });
-                
-                // Touch events for mobile swipe
-                carousel.addEventListener('touchstart', (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                });
-                
-                carousel.addEventListener('touchend', (e) => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                });
-                
-                function handleSwipe() {
-                    const swipeThreshold = 50;
-                    if (touchEndX < touchStartX - swipeThreshold) {
-                        goToNext();
-                    } else if (touchEndX > touchStartX + swipeThreshold) {
-                        goToPrev();
-                    }
-                }
-                
-                // Auto-play
-                let interval = setInterval(goToNext, 5000);
-                
-                // Pause auto-play when hovering over the carousel
-                carousel.addEventListener('mouseenter', () => {
-                    clearInterval(interval);
-                });
-                
-                carousel.addEventListener('mouseleave', () => {
-                    interval = setInterval(goToNext, 5000);
-                });
-                
-                // Initialize
-                updateCarousel();
-            });
-        </script>
-    </div>
-</div>
+                    <!-- Indicators -->
+                    <div id="carousel-indicators" class="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2 z-10">
+                        <!-- Indicators will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -895,7 +752,7 @@
                 
                  <p class="mt-6 text-gray-200 text-sm">Formation + Droit de Revente + Tous les Bonus Inclus</p>
             </div>
-            <a href="Paiement DSA" id="page-link" class="cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-5 px-12 rounded-full text-2xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation" data-page-id="6817d711d8bcb3ca43b66669">
+            <a href="Paiement DSA" class="open-popup-trigger cta-button inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-5 px-12 rounded-full text-2xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 pulse-animation mt-8" data-page-id="6817d711d8bcb3ca43b66669" id="page-link">
                 Oui, Je Veux Accéder à la DSA Maintenant ! <i class="fas fa-lock ml-2"></i>
             </a>
             <p class="mt-8 text-lg font-semibold">⚠️ Attention : Cette offre et ce business sont en pleine explosion. Ne manque pas le train de l'opportunité la plus simple et rentable de 2025 ! Les places avec accompagnement personnalisé sont limitées.</p>
@@ -980,7 +837,7 @@
                 <a href="#" class="hover:text-white">Mentions Légales</a>
                 <a href="#" class="hover:text-white">Politique de Confidentialité</a>
                 <a href="#" class="hover:text-white">Contact</a>
-            </div><a href="Page de Remerciements " id="page-link" data-page-id="6818f8f2d8bcb3ca43b66d67" class="text-gray-700 hover:text-blue-500"></a>
+            </div>
         </div>
     </footer>
 
@@ -999,7 +856,6 @@
             // Shrink header on scroll
             const header = document.getElementById('site-header');
             if (header) {
-                let lastScrollTop = 0;
                 window.addEventListener('scroll', () => {
                     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                     if (scrollTop > 50) {
@@ -1009,7 +865,6 @@
                         header.classList.add('h-20');
                         header.classList.remove('h-16');
                     }
-                    lastScrollTop = scrollTop;
                 });
             }
 
@@ -1022,7 +877,7 @@
                 e.preventDefault();
                 if (popupOverlay) {
                     popupOverlay.style.display = 'flex';
-                    document.body.classList.add('popup-open'); // Use class for body scroll lock
+                    document.body.classList.add('popup-open'); 
                 }
             }
 
@@ -1041,7 +896,6 @@
                 closePopupButton.addEventListener('click', closePopup);
             }
 
-            // Close popup if clicking on the overlay background
             if (popupOverlay) {
                 popupOverlay.addEventListener('click', function(e) {
                     if (e.target === popupOverlay) {
@@ -1050,7 +904,6 @@
                 });
             }
 
-            // Close popup with Escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === "Escape" && popupOverlay && popupOverlay.style.display === 'flex') {
                     closePopup();
@@ -1065,18 +918,10 @@
                     const content = button.nextElementSibling;
                     const isActive = button.classList.contains('active');
 
-                    // Optional: Close other open accordions
-                    // accordionButtons.forEach(otherButton => {
-                    //     if (otherButton !== button && otherButton.classList.contains('active')) {
-                    //         otherButton.classList.remove('active');
-                    //         otherButton.nextElementSibling.style.maxHeight = null;
-                    //     }
-                    // });
-
                     button.classList.toggle('active');
-                    if (!isActive) {
+                    if (!isActive) { // If it wasn't active, it is now, so open it
                         content.style.maxHeight = content.scrollHeight + "px";
-                    } else {
+                    } else { // If it was active, it is not anymore, so close it
                         content.style.maxHeight = null;
                     }
                 });
@@ -1084,50 +929,46 @@
 
             // Scroll Animation Logic
             const scrollElements = document.querySelectorAll('.scroll-animation');
-
             const elementInView = (el, dividend = 1) => {
                 const elementTop = el.getBoundingClientRect().top;
                 return (
                     elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
                 );
             };
-
             const displayScrollElement = (element) => {
                 element.classList.add('visible');
             };
-
             const handleScrollAnimation = () => {
                 scrollElements.forEach((el) => {
-                    if (elementInView(el, 1.15)) { // Trigger animation slightly before element is fully in view
+                    if (elementInView(el, 1.15)) { 
                         displayScrollElement(el);
                     }
-                    // Optional: Hide element again if scrolled back up
-                    // else { element.classList.remove('visible'); }
                 });
             };
-
-            // Initial check in case elements are already in view
             handleScrollAnimation();
             window.addEventListener('scroll', handleScrollAnimation);
 
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    // Prevent scroll if it's a popup trigger
                     if (this.classList.contains('open-popup-trigger')) {
-                       return; // Let the popup logic handle it
+                       return; 
                     }
-
                     const targetId = this.getAttribute('href');
-                    // Ensure it's a valid ID selector and not just "#"
                     if (targetId && targetId.length > 1 && targetId.startsWith('#')) {
                         const targetElement = document.querySelector(targetId);
                         if (targetElement) {
                             e.preventDefault();
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth'
+                            // Calculate offset for fixed header if necessary
+                            const headerOffset = document.getElementById('site-header') ? document.getElementById('site-header').offsetHeight : 0;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                            window.scrollTo({
+                                 top: offsetPosition,
+                                 behavior: "smooth"
                             });
-                            // Close mobile menu if open after clicking a link
+                            
                             if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                                 mobileMenu.classList.add('hidden');
                             }
@@ -1135,6 +976,126 @@
                     }
                 });
             });
+
+            // Carousel Logic in Testimonials
+            const carousel = document.getElementById('carousel');
+            if (carousel) {
+                const slides = carousel.querySelectorAll(':scope > div'); // Direct children divs are slides
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                const indicatorsContainer = document.getElementById('carousel-indicators');
+                let totalSlides = slides.length;
+                let currentIndex = 0;
+                let touchStartX = 0;
+                let touchEndX = 0;
+                let autoPlayInterval;
+
+                function createIndicators() {
+                    if (!indicatorsContainer) return;
+                    indicatorsContainer.innerHTML = ''; // Clear existing static indicators
+                    for (let i = 0; i < totalSlides; i++) {
+                        const indicator = document.createElement('div');
+                        indicator.classList.add('indicator', 'w-2', 'h-2', 'sm:w-3', 'sm:h-3', 'rounded-full', 'cursor-pointer', 'opacity-70', 'hover:opacity-100', 'transition-opacity');
+                        indicator.dataset.index = i;
+                        if (i === 0) {
+                            indicator.classList.add('bg-white');
+                            indicator.classList.remove('bg-white/50');
+                        } else {
+                            indicator.classList.add('bg-white/50');
+                        }
+                        indicator.addEventListener('click', () => {
+                            goToSlide(i);
+                        });
+                        indicatorsContainer.appendChild(indicator);
+                    }
+                }
+                
+                function updateCarousel() {
+                    if (totalSlides === 0) return;
+                    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    
+                    const currentIndicators = indicatorsContainer ? indicatorsContainer.querySelectorAll('.indicator') : [];
+                    currentIndicators.forEach((indicator, index) => {
+                        if (index === currentIndex) {
+                            indicator.classList.add('bg-white');
+                            indicator.classList.remove('bg-white/50');
+                        } else {
+                            indicator.classList.remove('bg-white');
+                            indicator.classList.add('bg-white/50');
+                        }
+                    });
+                }
+                
+                function goToSlide(index) {
+                    if (totalSlides === 0) return;
+                    currentIndex = index;
+                    updateCarousel();
+                    resetAutoPlay();
+                }
+
+                function goToNext() {
+                    if (totalSlides === 0) return;
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateCarousel();
+                }
+                
+                function goToPrev() {
+                    if (totalSlides === 0) return;
+                    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                    updateCarousel();
+                }
+
+                function startAutoPlay() {
+                    if (totalSlides > 0) {
+                       autoPlayInterval = setInterval(goToNext, 5000);
+                    }
+                }
+
+                function stopAutoPlay() {
+                    clearInterval(autoPlayInterval);
+                }
+
+                function resetAutoPlay() {
+                    stopAutoPlay();
+                    startAutoPlay();
+                }
+                
+                if (nextBtn) nextBtn.addEventListener('click', () => { goToNext(); resetAutoPlay(); });
+                if (prevBtn) prevBtn.addEventListener('click', () => { goToPrev(); resetAutoPlay(); });
+                
+                carousel.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    stopAutoPlay();
+                });
+                
+                carousel.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                    startAutoPlay();
+                });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50; // Minimum distance for a swipe
+                    if (touchEndX < touchStartX - swipeThreshold) {
+                        goToNext();
+                    } else if (touchEndX > touchStartX + swipeThreshold) {
+                        goToPrev();
+                    }
+                }
+                
+                carousel.addEventListener('mouseenter', stopAutoPlay);
+                carousel.addEventListener('mouseleave', startAutoPlay);
+                
+                // Initialize Carousel
+                if (totalSlides > 0) {
+                    createIndicators();
+                    updateCarousel();
+                    startAutoPlay();
+                } else {
+                    if(prevBtn) prevBtn.style.display = 'none';
+                    if(nextBtn) nextBtn.style.display = 'none';
+                }
+            }
         });
     </script>
 </body>
